@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css?family=Lora:700|Scope+One');
+
+/* DEFAULTS */
+:root {
+    --primaryDark: rgba(70, 55, 48, 1);
+    --alternate: rgba(31, 86, 115, 1);
+    --primaryLight: rgba(117, 159, 188, 1);
+    --accent: rgba(144, 195, 200, 1);
+    --accent2: #B15E6C;
+    --lora: 'Lora', serif;
+    --scopeOne: 'Scope One', serif;
+}
+
+body,
+html {
+    padding: 0;
+    margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+button {
+    font-family: var(--lora);
+}
+
+p {
+    font-family: var(--scopeOne);
+}
+
+/* FOUNDATION */
+button {
+    color: var(--alternate);
+    background-color: var(--accent);
+    border: 2px solid var(--accent2);
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+button:hover {
+    color: var(--accent);
+    background-color: var(--alternate);
+}
+
+#content-container {
+    background-color: var(--primaryLight);
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* QUESTIONS */
+article {
+    width: 80%;
+    margin: 0 auto;
+    padding: 5px;
+    border-bottom: 1px groove var(--accent);
+}
+
+article p {
+    margin: 0 0 10px 0;
+    font-size: 1.2rem;
+    color: var(--primaryDark);
+}
+
+article div {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
