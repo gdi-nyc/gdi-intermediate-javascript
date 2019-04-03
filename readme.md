@@ -18,7 +18,7 @@ Intro to JavaScript, or a basic understanding of JavaScript programming and synt
 
 ## Classes
 ### Class 1
-The course begins with a review of basic JavaScript programming followed by some more advanced concepts, such as arrow functions, the ternary operator, array methods, and callbacks.
+The course begins with a review of basic JavaScript programming followed by some more advanced concepts, such as arrow functions, the ternary operator, and array methods.
 
 ### Class 2
 This class covers basic understanding of JSON and accessing object properties as well as visualizing the data by modifying the DOM.
@@ -27,7 +27,7 @@ This class covers basic understanding of JSON and accessing object properties as
 The topics covered in this class include asynchronous JavaScript, making an API request, and working with event handlers and callbacks.
 
 ### Class 4
-The last class is used as an opportunity to familiarize participants with using other APIs, reading API documentation, as well as cleaning up and enhancing any remaining code for the Quiz App.
+The last class is used as an opportunity to familiarize students with using other APIs, reading API documentation, as well as cleaning up and enhancing any remaining code for the final project, the Quiz App.
 
 ## Credits
 This is the Girl Develop It NYC Intermediate JavaScript curriculum. It was developed through the contributions of Mahdi Shadkam-Farrokhi.
