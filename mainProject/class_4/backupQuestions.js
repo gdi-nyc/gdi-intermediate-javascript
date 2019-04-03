@@ -72,3 +72,64 @@ const backupQuestions = {
         "incorrect_answers": ["Tranzit", "Call Of The Dead", "Shi No Numa"]
     }]
 };
+
+const randomUserObj = {
+    "results": [{
+        "gender": "female",
+        "name": {
+            "title": "miss",
+            "first": "carolyn",
+            "last": "murray"
+        },
+        "location": {
+            "street": "5154 pearse street",
+            "city": "kinsale",
+            "state": "cork city",
+            "postcode": 29699,
+            "coordinates": {
+                "latitude": "21.3104",
+                "longitude": "60.3380"
+            },
+            "timezone": {
+                "offset": "+8:00",
+                "description": "Beijing, Perth, Singapore, Hong Kong"
+            }
+        },
+        "email": "carolyn.murray@example.com",
+        "login": {
+            "uuid": "3a1d8a82-39da-4481-a996-0e2515ee3c9a",
+            "username": "happybird942",
+            "password": "mnbvcxz",
+            "salt": "JZNrGekK",
+            "md5": "d836a4bfca4e5ee08c3b71ab23099e31",
+            "sha1": "53bdfec7e00dbe0db88f807d27d7b42dd47b3bbf",
+            "sha256": "3adeea62070399f38a1c241e95b1baa924158c6fa060a0e6f2ddd5cdc277b0ae"
+        },
+        "dob": {
+            "date": "1952-10-07T17:49:44Z",
+            "age": 66
+        },
+        "registered": {
+            "date": "2007-07-30T14:57:23Z",
+            "age": 11
+        },
+        "phone": "031-882-7662",
+        "cell": "081-240-6892",
+        "id": {
+            "name": "PPS",
+            "value": "9118633T"
+        },
+        "picture": {
+            "large": "https://randomuser.me/api/portraits/women/10.jpg",
+            "medium": "https://randomuser.me/api/portraits/med/women/10.jpg",
+            "thumbnail": "https://randomuser.me/api/portraits/thumb/women/10.jpg"
+        },
+        "nat": "IE"
+    }],
+    "info": {
+        "seed": "fabb71b2addb4ab3",
+        "results": 1,
+        "page": 1,
+        "version": "1.2"
+    }
+}

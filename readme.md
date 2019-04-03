@@ -1,43 +1,33 @@
-Last Edited 2/14/19
-
-# Intro to HTML/CSS
-Slides and materials are hosted at [http://girldevelopit.github.io/gdi-featured-html-css-intro//](http://girldevelopit.github.io/gdi-featured-html-css-intro/).
+# Intermediate JavaScript
+Slides and materials are hosted at [https://gdi-nyc.github.io/gdi-intermediate-javascript/](https://gdi-nyc.github.io/gdi-intermediate-javascript/).
 
 ## Course description
 This is a 4-part, 8-hour course.
 
-Want to learn how to build your own website? Already have your own site and want to have more control over it? Interested in learning to program but want to start small? If you answered yes to any of the questions above, this course is for you!
+Want to skill up in JavaScript? Are you ready to take your basic understanding of JavaSript to the next level? Interested in creating practical web applications. If you answered yes to any of the questions above, this course is for you!
 
-This beginner course will guide you through the basics of HTML and CSS. By the end of the class, you will have developed a first version of your own website.
-
+This intermediate course will dive deepers into the more advanced topics in JavaScript for web development. By the end of the class, you will have a working Quiz application that pulls asynchronous data from an API, modifies the DOM using "vanilla" JavaScript, and responds to user input through event handlers.
 
 ### Prerequisites:
-No previous experience is required.
+Intro to JavaScript, or a basic understanding of JavaScript programming and syntax.
 
 ### Tech requirements:
  - Your laptop (Mac, PC, or Linux are all okay).
  - A modern web browser - either Chrome or Firefox with Firebug installed.
- - A text editor. We recommend Sublime Text 2 (free; available for Mac, PC, and Linux).
+ - A text editor. We recommend [Visual Studio Code](https://code.visualstudio.com/download) (free)
 
 ## Classes
 ### Class 1
-Introduction to HTML. What is it? Why does it matter?
-You will go through the basic history of HTML, including how it interacts with the browser and why that matters.
-Then you will discuss the layout of an HTML page, including html, body, head and nesting.
-Finally, you will go through many of the basic HTML elements.
-Students will begin to make a personal portfolio page with HTML elements and no styling.
+The course begins with a review of basic JavaScript programming followed by some more advanced concepts, such as arrow functions, the ternary operator, array methods, and callbacks.
 
 ### Class 2
-Introduction to CSS. Colors? Styles? What? It's all true. And you thought we are going to make you live your life in black and white.
-You will go through most of the css styles, including font changes, layout, size, and color. You will show how to connect them to html selectors. The CSS file will be an external file.
-Students will add CSS styling to their portfolio.
+This class covers basic understanding of JSON and accessing object properties as well as visualizing the data by modifying the DOM.
 
 ### Class 3
-Introduction to divs, spans, ids and classes. You didn't think we would just leave you with paragraphs and lists did you? No, my friends. We are going to dive into these super valuable container elements. Then learn how to have id and class selectors in our CSS. Who wants all paragraphs to look the same.
-Students will start customizing their portfolio with all sorts of goodies.
+The topics covered in this class include asynchronous JavaScript, making an API request, and working with event handlers and callbacks.
 
 ### Class 4
-Box model? Floating? Columns? What is this sorcery? You've brought people through the core of html and css. Now give them the next steps to be pros. Students will add columns, footers and headers to their portfolios.
+The last class is used as an opportunity to familiarize participants with using other APIs, reading API documentation, as well as cleaning up and enhancing any remaining code for the Quiz App.
 
 ## Credits
-This is the Girl Develop It Core HTML/CSS curriculum. It was developed through the contributions of Pamela Fox, Alexis Goldstein, Erin M. Kidwell, Izzy Johnston, and Jen Myers, and modified by Sylvia Pellicore and Mahdi Shadkam-Farrokhi.
+This is the Girl Develop It NYC Intermediate JavaScript curriculum. It was developed through the contributions of Mahdi Shadkam-Farrokhi.

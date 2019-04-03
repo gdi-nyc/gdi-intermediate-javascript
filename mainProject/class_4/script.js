@@ -28,5 +28,9 @@ const containerDiv = document.querySelector("#content-container");
 // loading the code will execute like normal, but because it only exists within the callback
 // the user cannot access the variables! (NOTE: this is a standard practice)
 
-// Use the Random User API (https://randomuser.me/) to get 1 random user as JSON.
+// Use the Random User API (https://randomuser.me/api/) to get 1 random user as JSON.
 // Incorporate the user's information in your quiz app, such as their name, image, and username.
+// WARNING: In case your IP address is blacklisted (due to excessive 
+// calls to the API from your network) you can use the variable "randomUserObj"
+// (already added as a global variable) in place of the retuning data. 
+// It resembles the API's JSON you would normally see.
