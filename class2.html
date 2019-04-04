@@ -15,7 +15,6 @@
 
   <link rel="stylesheet" href="css/reveal.css">
   <link rel="stylesheet" href="css/theme/gdidefault.css" id="theme">
-  <link rel="stylesheet" href="css/custom.css">
 
   <!-- For syntax highlighting -->
   <!-- light editor<link rel="stylesheet" href="lib/css/light.css">-->
@@ -58,15 +57,65 @@
       <section>
         <h1>Agenda</h1>
         <ul>
-          <li></li>
-          <li></li>
-          <li></li>
+          <li>Review Quiz</li>
+          <li>Objects</li>
+          <li>JSON</li>
+          <li>Working with the DOM</li>
         </ul>
       </section>
 
       <section>
-        <h1>Review Quiz</h1>
-        <h3>Let's see what you remember from last class!</h3>
+        <section>
+          <h1>Review Quiz</h1>
+          <h3>⬇</h3>
+        </section>
+        <section>
+          <p>Given the array "students", how would you access the last item?</p>
+          <pre class="fragment"><code class="javascript" data-trim>
+            const last = students[students.length-1];
+          </code></pre>
+        </section>
+        <section>
+          <p>What will the last expression evaluate to?</p>
+          <br>
+          <pre><code class="javascript" data-trim>
+let gold = 100;
+ 
+gold >= 120 ? "Sword acquired" : "{Not enough gold}";
+            </code></pre>
+          <pre class="fragment"><code class="javascript" data-trim>
+"{Not enough gold}"
+             </code></pre>
+        </section>
+        <section>
+          <p>What Array method adds a given element to the end of the array?</p>
+          <br>
+          <p class="fragment">.push()</p>
+        </section>
+        <section>
+          <p>Describe what the following function "x" does</p>
+          <pre class="fragment"><code class="javascript" data-trim>
+let x = () => Math.random() > .6 ? "Heads" : "Tails";
+</code></pre>
+          <pre class="fragment"><code class="javascript" data-trim>
+let x = function(){
+  return Math.random() > .6 ? "Heads" : "Tails";
+}
+</code></pre>
+          <pre class="fragment"><code class="javascript" data-trim>
+let x = function(){
+  const randNum = Math.random();
+  if(randNum > .6){
+    return "Heads";
+  }else{
+    return "Tails";
+  }
+}
+</code></pre>
+          <br>
+          <p class="fragment">Is this a "fair coin?" Why or why not?</p>
+        </section>
+
       </section>
 
       <section>

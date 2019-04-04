@@ -15,7 +15,6 @@
 
   <link rel="stylesheet" href="css/reveal.css">
   <link rel="stylesheet" href="css/theme/gdidefault.css" id="theme">
-  <link rel="stylesheet" href="css/custom.css">
 
   <!-- For syntax highlighting -->
   <!-- light editor<link rel="stylesheet" href="lib/css/light.css">-->
@@ -58,15 +57,87 @@
       <section>
         <h1>Agenda</h1>
         <ul>
-          <li></li>
-          <li></li>
-          <li></li>
+          <li>Review Quiz</li>
+          <li>Quiz App: last steps</li>
+          <li>Other APIs</li>
+          <li>Goodbye!😢</li>
         </ul>
       </section>
 
       <section>
-        <h1>Review Quiz</h1>
-        <h3>Let's see what you remember from last class!</h3>
+        <section>
+          <h1>Review Quiz</h1>
+          <h3>⬇</h3>
+        </section>
+        <section>
+          <p>What could be improved in the following code?</p>
+          <pre class="fragment"><code  class="javascript" data-trim contenteditable>
+let students = ["Bob","Amy","Betty","Bill","Marge","Charlotte","Shawn","Pedro"];
+let longestName = function(){
+  let output = "";
+  for(let i = 0; i < students.length; i++){
+    let name = students[i];
+    if(name.length > output.length){
+      output = name;
+    }
+  }
+  return output;
+}
+longestName();
+            </code></pre>
+          <pre class="fragment"><code class="javascript" data-trim contenteditable>
+// preference for const
+const students = ["Bob","Amy","Betty","Bill","Marge","Charlotte","Shawn","Pedro"];
+// Can abstract function to be more versatile
+const longestStr = function(arr){ // keep references within function
+  let output = "";
+  for(let i = 0; i < arr.length; i++){
+    const str = arr[i];
+    output = str.length > output.length ? str : output;
+  }
+  return output;
+}
+longestStr(students); // pass data into function as argument
+            </code></pre>
+        </section>
+        <section>
+          <p>What is the value of pikachu.health?</p>
+          <pre class="fragment"><code class="javascript" data-trim>
+const pikachu = {
+  health: 10,
+  defense: 5
+}
+const charmander = {
+  punch: function(obj){
+    const damage = 12 - obj.defense;
+    obj.health -= damage;
+  }
+}
+charmander.punch(pikachu);
+            </code></pre>
+          <pre class="fragment"><code class="javascript" data-trim>
+pikachu.health; // (10 - (12 - 5)) == (10 - 7) == 3
+            </code></pre>
+        </section>
+        <section>
+          <p>How would you get all divs with a class of "xyz" from the DOM?</p>
+          <pre class="fragment"><code class="javascript" data-trim>
+const divs = document.querySelectorAll("div.xyz");
+            </code></pre>
+        </section>
+        <section>
+          <p>Why does the following console.log() print "undefined?"</p>
+          <pre class="fragment"><code class="javascript" data-trim>
+const URL = "https://some-api.com/api";
+let info;
+fetch(URL)
+  .then(r=>r.json())
+  .then(data=>{
+    info = data;
+  })
+console.log(info); // undefined
+            </code></pre>
+        </section>
       </section>
 
       <section>

@@ -15,7 +15,6 @@
 
   <link rel="stylesheet" href="css/reveal.css">
   <link rel="stylesheet" href="css/theme/gdidefault.css" id="theme">
-  <link rel="stylesheet" href="css/custom.css">
 
   <!-- For syntax highlighting -->
   <!-- light editor<link rel="stylesheet" href="lib/css/light.css">-->
@@ -58,15 +57,100 @@
       <section>
         <h1>Agenda</h1>
         <ul>
-          <li></li>
-          <li></li>
-          <li></li>
+          <li>Review Quiz</li>
+          <li>Asynchronous JS</li>
+          <li>API's</li>
+          <li>Handling Events</li>
         </ul>
       </section>
 
       <section>
-        <h1>Review Quiz</h1>
-        <h3>Let's see what you remember from last class!</h3>
+        <section>
+          <h1>Review Quiz</h1>
+          <h3>⬇</h3>
+        </section>
+        <section>
+          <p>What is wrong with the following function?</p>
+          <pre class="fragment"><code class="javascript" data-trim>
+function factorial(n) => {
+  if (n===1) {
+    return 1;
+  }
+  return n * factorial(n-1);
+}
+            </code></pre>
+          <pre class="fragment"><code class="javascript" data-trim>
+// Was trying to combine 2 different ways of defining a function
+// Could go with function declaration or arrow function
+function factorial(n) {
+  if (n===1) {
+    return 1;
+  }
+  return n * factorial(n-1);
+}
+            </code></pre>
+          <pre class="fragment"><code class="javascript" data-trim>
+const factorial = n => {
+  if (n===1) {
+    return 1;
+  }
+  return n * factorial(n-1);
+}
+            </code></pre>
+        </section>
+        <section>
+          <p>How would you access the 2nd item in the object's array?</p>
+          <pre class="fragment"><code class="javascript" data-trim>
+const superman = {
+  name: "Kal-El",
+  alter_ego: "Clark Kent",
+  origin: "Krypton",
+  powers: ["strength","x-ray vision","indestructibility","ice breath","eye beam"]
+}  
+          </code></pre>
+          <pre class="fragment"><code class="javascript" data-trim>
+superman.powers[1];
+          </code></pre>
+        </section>
+        <section>
+          <p>I can't see the &lt;p&gt; element I added to the DOM. Here's my "script.js" file. Why isn't it working?😭
+          </p>
+          <pre class="fragment"><code class="javascript" data-trim>
+const container = document.querySelector(".container");
+const p = document.createElement("p");
+p.innerHTML = "Hello World!";
+            </code></pre>
+          <pre class="fragment"><code class="javascript" data-trim>
+// Need to attach/append the newly create element to a DOM element
+container.append(p);
+            </code></pre>
+        </section>
+        <section>
+          <p>I made the change - my JavaScript is correct, but I still can't see the &lt;p&gt; element. Here's my
+            "index.html" file. Why isn't it working?😭</p>
+          <pre class="fragment"><code class="xml" data-trim>
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Cool Site&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div class="container"&gt;&lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+            </code></pre>
+          <pre class="fragment"><code class="xml" data-trim>
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Cool Site&lt;/title&gt;
+    &lt;!--Forgot to load the JavaScript file!--&gt;
+    &lt;script src="script.js"&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div class="container"&gt;&lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+            </code></pre>
+        </section>
       </section>
 
       <section>
