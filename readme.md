@@ -4,7 +4,7 @@ Slides and materials are hosted at [https://gdi-nyc.github.io/gdi-intermediate-j
 ## Course description
 This is a 4-part, 8-hour course.
 
-Want to skill up in JavaScript? Are you ready to take your basic understanding of JavaSript to the next level? Interested in creating practical web applications. If you answered yes to any of the questions above, this course is for you!
+Want to skill up in JavaScript? Are you ready to take your basic understanding of JavaSript to the next level? Interested in creating practical web applications? If you answered yes to any of the questions above, this course is for you!
 
 This intermediate course will dive deepers into the more advanced topics in JavaScript for web development. By the end of the class, you will have a working Quiz application that pulls asynchronous data from an API, modifies the DOM using "vanilla" JavaScript, and responds to user input through event handlers.
 
@@ -35,10 +35,9 @@ This is the Girl Develop It NYC Intermediate JavaScript curriculum. It was devel
 ### TO DO LIST
 - ~~Ensure there is 1 break for each class~~
 - ~~Ensure there is 1 quiz for each class (except first)~~
-- Compile all resources into index.html
+- ~~Ensure each class has accurate Agenda at start~~
 - Create Content for each class
-- Include Instructor notes where applicable
 - Include bonuses for every activity
-- Ensure each class has accurate Agenda at start
+- Compile all resources into index.html
 - Vet a few good APIs
 - Research resources and trailblazers to follow via different media

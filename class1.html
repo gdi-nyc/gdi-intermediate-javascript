@@ -55,11 +55,22 @@
       </section>
 
       <section>
+        <h3>Get the course!</h3>
+        <p>Download the course files - <a
+            href="https://github.com/gdi-nyc/gdi-intermediate-javascript">https://github.com/gdi-nyc/gdi-intermediate-javascript</a>
+        </p>
+        <img src="img/github_download.PNG" alt="download course instruction">
+        <p>Can view slides at - <a
+            href="https://gdi-nyc.github.io/gdi-intermediate-javascript/">https://gdi-nyc.github.io/gdi-intermediate-javascript/</a>
+        </p>
+      </section>
+
+      <section>
         <h1>Agenda</h1>
         <ul>
           <li>Intro</li>
           <li>JavaScript Programming Refresher</li>
-          <li>Convenient JS</li>
+          <li>Some JS conveniences</li>
         </ul>
       </section>
 
@@ -101,15 +112,12 @@
       </section>
 
       <section>
-        <h3>Welcome!</h3>
-        <div class="left-align">
-          <h4>Breaking the ice!</h4>
-          <ul>
-            <li>What's your name?</li>
-            <li>What do you hope to get out of this class?</li>
-            <li>What is one thing you've failed at?</li>
-          </ul>
-        </div>
+        <h3>Breaking the ice!</h3>
+        <ul>
+          <li>What's your name?</li>
+          <li>What do you hope to get out of this class?</li>
+          <li>What is one thing you've failed at?</li>
+        </ul>
       </section>
 
       <section>
@@ -117,63 +125,279 @@
       </section>
 
       <section>
-        <h1>What is JavaScript?</h1>
+        <h2>What is JavaScript?</h2>
         <p class="fragment">An object-oriented computer programming language commonly used to create interactive effects
           within web browsers.</p>
       </section>
 
       <section>
+        <h2>JS History</h2>
+        <ul>
+          <li class="fragment">Created by Brendan Eich in 1995</li>
+          <li class="fragment">Inspired by Java</li>
+          <li class="fragment">Standardized - European Computer Manufacturers Association Script (ECMAScript)</li>
+          <li class="fragment">ECMAScript 1 (1997)</li>
+          <li class="fragment">ECMAScript 2 (1998)</li>
+          <li class="fragment">ECMAScript 3 (1999)</li>
+          <li class="fragment">ECMAScript 5 (2009)</li>
+          <li class="fragment">ECMAScript 2015 (AKA ES6)</li>
+        </ul>
+      </section>
+
+      <section>
         <h2>Variables</h2>
+        <p>Variables store information</p>
+        <pre class="fragment"><code class="javascript" data-trim>
+let age = 26; // Can change this variable
+const name = "Marry"; // Cannot change this variable
+</code></pre>
+        <p class="fragment">
+          Note: best practice is to prefer using "const"
+        </p>
       </section>
 
       <section>
         <h2>Data Types</h2>
+        <p>Three most common types of data</p>
+        <pre class="fragment"><code class="javascript" data-trim>
+56; // Number
+
+"blah blah"; // String
+
+true; // Boolean
+          </code></pre>
+      </section>
+
+      <section>
+        <h2>POP QUIZ!</h2>
+        <p>Name that data type!</p>
+        <p class="fragment">17</p>
+        <p class="fragment">false</p>
+        <p class="fragment">"false"</p>
+        <p class="fragment">1</p>
+        <p class="fragment">"525600"</p>
+        <p class="fragment">true</p>
+      </section>
+
+      <section>
+        <h2>POP QUIZ - Answers!</h2>
+        <p>Name that data type!</p>
+        <p>17 - Number</p>
+        <p>false - Boolean</p>
+        <p>"false" - String</p>
+        <p>1 - Number</p>
+        <p>"525600" - String</p>
+        <p>true - Boolean</p>
       </section>
 
       <section>
         <h2>Math Operators</h2>
+        <pre><code class="javascript" data-trim>
+5 + 6; // 11
+9 - 4; // 5
+3 * 5; // 15
+4 / 2; // 2
+2 ** 3; // 8
+16 % 5; // 1
+</code></pre>
+        <p class="fragment">The last one, %, is called modulo - it returns the remainder of the division</p>
+        <p class="fragment">Modulo is often used to check for even division</p>
+        <pre class="fragment"><code class="javascript" data-trim>
+// Checking for evenness
+let amount = 2206;
+amount % 2; // 0
+amount % 2 === 0; // true
+</code></pre>
+        <pre class="fragment"><code class="javascript" data-trim>
+361 % 8; // 1
+361 % 8 === 0; // false
+</code></pre>
       </section>
 
       <section>
         <h2>Arrays</h2>
+        <ul>
+          <li class="fragment">Arrays store multiple pieces of information, or items</li>
+          <li class="fragment">Each item is referenced by it's index, or spot in "line"</li>
+          <li class="fragment">Order matters!</li>
+          <li class="fragment">Indexing starts at 0!</li>
+        </ul>
+        <pre class="fragment"><code class="javascript" data-trim>
+const students = ["Cheryl", "Sammy","Marty"];
+students[0]; // "Cheryl"
+students[1]; // "Sammy"
+
+students[0] = "Billy"; // reassignment
+
+students[5]; // undefined
+</code></pre>
+      </section>
+
+      <section>
+        <h2>POP QUIZ!</h2>
+        <pre class="fragment"><code class="javascript" data-trim>
+const colors = ["blue","red","green","cyan","yellow","orange","#000000"];
+</code></pre>
+        <p class="fragment">How would you access "cyan"?</p>
+        <pre class="fragment"><code class="javascript" data-trim>
+colors[3];
+  </code></pre>
+        <p class="fragment">What string is at the 5th index?</p>
+        <pre class="fragment"><code class="javascript" data-trim>
+colors[5]; // "orange"
+  </code></pre>
+        <p class="fragment">How would you access the last item in the array?</p>
+        <pre class="fragment">
+<code class="javascript" data-trim>
+colors[6]; // technically correct...
+colors[colors.length-1]; //👍 programmers #1 choice
+</code></pre>
+        <p class="fragment">How would you reassign the last item to "black"?</p>
+        <pre class="fragment"><code class="javascript" data-trim>
+colors[colors.length-1] = "black";
+  </code></pre>
       </section>
 
       <section>
         <h2>Loops</h2>
+        <p>Loops allows the same block of code to be executed multiple times in succession</p>
+        <p class="fragment">The 2 most common loops are the "for" and "while" loop</p>
       </section>
 
       <section>
+        <h2>"for" loop</h2>
+        <img style="background-color: white;" width="500px" src="img/for_loop.png" alt="for loop breakdown"
+          class="fragment">
+      </section>
+
+      <section>
+        <h2>"for" loops + arrays = 🎉</h2>
+        <pre class="fragment"><code class="javascript" data-trim>
+const students = ["Marry","Barb","Phil"];
+// Loops through array and console.logs each item
+for(let i = 0; i < students.length; i++){
+  const student = students[i]; // iterator, i, used as index
+  console.log(student);
+}
+</code></pre>
+      </section>
+
+      <section>
+        <h2>"while" loop</h2>
+        <p>Works much like the "for" loop, but the 3 parts (initialization, condition, and final expression) are
+          delegated differently</p>
+        <pre class="fragment"><code class="javascript" data-trim>
+const students = ["Marry","Barb","Phil"];
+// Loops through array and console.logs each item
+for(let i = 0; i < students.length; i++){
+  const student = students[i]; // iterator, i, used as index
+  console.log(student);
+}
+</code></pre>
+        <pre class="fragment"><code class="javascript" data-trim>
+const students = ["Marry","Barb","Phil"];
+let i = 0; // initialization OUTSIDE of "while" loop
+while(i < students.length){ // condition - eventually must evalauate to false!
+  const student = students[i];
+  console.log(student);
+  i++; // final expression
+}
+    </code></pre>
+      </section>
+
+      <section>
+        <h2>"while" loop trickery</h2>
+        <p>Since each part of the loop is separate, we can often get away with more succinct code</p>
+        <pre class="fragment"><code class="javascript" data-trim>
+const students = ["Marry","Barb","Phil"];
+while(students.length){ // 0 equals false
+  const student = students.shift(); // removes first item from array
+  console.log(student);
+}
+</code></pre>
+        <pre class="fragment"><code class="javascript" data-trim>
+const students = ["Marry","Barb","Phil"];
+while(students.length) console.log(students.shift()); // brackets optional on 1 line
+</code></pre>
+        <p class="fragment">WARNING: Beware the infinite "while" loop where the condition is always true!</p>
+      </section>
+      <section>
         <h2>Conditionals</h2>
+        <ul>
+          <li class="fragment">Conditional statements allow for code to be differentially executed based on specific
+            conditions</li>
+          <li class="fragment">"if" and "if/else" statements are the most common conditional statements</li>
+        </ul>
+        <pre class="fragment"><code class="javascript" data-trim>
+const age = 23;
+if(age > 18){
+  console.log("Welcome to the casino!");
+}else{
+  console.log("YOU SHALL NOT PASS!");
+}
+</code></pre>
       </section>
 
       <section>
         <h2>Logical Operators</h2>
+        <p class="fragment">Just like math operators, logical operators allow us to govern how logical expressions are
+          evaluated and will always evaluate to a boolean</p>
+        <pre class="fragment"><code class="javascript" data-trim>
+5 > 4; // true
+12 < 6; // false
+16 >= 4; // true
+3 <= 7; // true
+5 == 9; // false (checks equality)
+5 != 5; // false (checks inequality)
+</code></pre>
       </section>
 
       <section>
-        <h2>Expression vs. Evaluation</h2>
+        <h2>Boolean Operators</h2>
+        <p class="fragment">Boolean operators allow for more complex logical expressions and often involve "truthy" and
+          "falsey" values</p>
+        <pre class="fragment"><code class="javascript" data-trim>
+// ||
+// OR - returns true if one side evaluates to true
+true  || true;  // true
+true  || false; // true
+false || true;  // true
+false || false; // false
+// &&
+// AND - returns true if BOTH sides evaluate to true
+true  && true;  // true
+true  && false; // false
+false && true;  // false
+false && false; // false
+// !
+// NOT - negates the logical expressions that follows
+!true;  // false
+!false; // true
+          </code></pre>
       </section>
 
       <section>
-        <h2>Functions</h2>
-      </section>
-
-      <section>
-        <h2>Let's Develop It!</h2>
-        <ul>
-          <li>Create an array of prices</li>
-          <li>Create a function "actualPrices" that takes 2 arguments, an array and a decimal representing the tax </li>
+        <h2>Truthy vs. Falsey</h2>
+        <ul class="fragment">
+          <li>Values that can be coerced into <code>true</code> are "truthy"</li>
+          <li>Values that can be coerced into <code>false</code> are "falsey"</li>
         </ul>
-      </section>
+        <br />
+        <br />
+        <p class="fragment">There are fewer "falsey" values, so let's define them and consider everything else as
+          "truthy"</p>
+        <pre class="fragment"><code class="javascript" data-trim>
+if (false) // actual false
+if (null)
 
-      <section>
-        <h2>What just happened?</h2>
-        <ul>
-          <li class="fragment">We covered the programming parts of "what" JS is</li>
-          <li class="fragment">It's on YOU to discover "how" these parts can work togehter to solve a problem</li>
-          <li class="fragment">For example, how would you check if a number is even?</li>
-          <li class="fragment">For example, how would you get the last item in an array?</li>
-        </ul>
+if (undefined) // such as a variable defined unassigned variable
+let x; // undefined by default
+if (x)
+
+if (0) // zero!
+if (NaN) // Not A Number, can happen if you add undefined to a number
+if ("") // empty string
+            </code></pre>
       </section>
 
       <section>
@@ -181,24 +405,178 @@
       </section>
 
       <section>
-        <h2>Ternary Operator</h2>
+        <h2>Functions</h2>
+        <p class="fragment">Functions are a way to store code to be executed later</p>
+        <pre class="fragment"><code class="javascript" data-trim>
+function coinFlip(){
+  // Math.random() returns a random decimal between 0 and 1
+  return Math.random() > .5;
+}
+</code></pre>
       </section>
 
       <section>
-        <h2>Arrow Function</h2>
+        <h2>Functions</h2>
+        <p class="fragment">Functions are a way to store code to be executed later</p>
+        <pre class="fragment"><code class="javascript" data-trim>
+function coinFlip(){
+  return Math.random() > .5;
+}
+</code></pre>
       </section>
 
       <section>
-        <h2>Array Methods</h2>
+        <h2>Defining Functions</h2>
+        <p class="fragment">MANY ways to define a function in JS. Here are a few basic ways.</p>
+        <pre class="fragment"><code class="javascript" data-trim>
+function coinFlip(){
+  return Math.random() > .5;
+}
+</code></pre>
+        <pre class="fragment"><code class="javascript" data-trim>
+const coinFlip = function(){
+  return Math.random() > .5;
+}
+</code></pre>
+        <pre class="fragment"><code class="javascript" data-trim>
+const coinFlip = () => Math.random() > .5; // We'll dive into this later!
+</code></pre>
+      </section>
+
+      <section>
+        <h2>Functions with parameters</h2>
+        <p class="fragment">Functions can accept arguments, or information passed into them when they are called</p>
+        <pre class="fragment"><code class="javascript" data-trim>
+function getTotalPrice(price, tax){
+  return price * (1 + tax);
+}
+
+getTotalPrice(100, .08); // 108
+</code></pre>
       </section>
 
       <section>
         <h2>Let's Develop It!</h2>
+        <p>In the "mainProject" folder, go into "class_1", and edit the "script.js" file</p>
         <ul>
-          <li>Get the script.js file with instructions</li>
-          <li>Here are all of the parts, can work in pairs to figure it out</li>
-          <li></li>
+          <li>Let's psuedocode this together!</li>
+          <li>Create a function "randomItem" that takes 1 argument: an array</li>
+          <li>The function should return a random item from the given array</li>
         </ul>
+
+        <p class="fragment">HINT:</p>
+        <pre class="fragment"><code class="javascript" data-trim>
+// Math.random() returns a random decimal in the range of 0 and 1
+Math.random(); // 0.231657
+
+// You can scale up a range through multiplication
+const val = Math.random() * 12; // 5.632467 a random number in the range of 0 and 12
+
+// Math.floor() removes the decimal part of a number
+Math.floor(val); // 5
+</code></pre>
+      </section>
+
+      <section>
+        <h2>One possible solution...</h2>
+        <pre class="fragment"><code class="javascript" data-trim>
+const randomItem = function(arr){
+  const randNum = Math.random();
+  const randIndex = Math.floor(randNum * arr.length);
+  return arr[randIndex];
+}
+            </code></pre>
+      </section>
+
+      <section>
+        <h2>Wrap up</h2>
+        <ul>
+          <li class="fragment">We covered the major programming parts of WHAT JS is</li>
+          <li class="fragment">It's on YOU to discover HOW these parts can work together to solve a problem and WHY
+            certain practices are better than others (this takes time and practice!)
+            <ul>
+              <li class="fragment">For example, how would you check if a number is even?</li>
+              <li class="fragment">For example, how would you get the last item in an array?</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Ternary Operator</h2>
+        <p>The ternary operator is another way of representing an "if/else" statement in one line</p>
+        <pre class="fragment"><code class="javascript" data-trim>
+const user_authenticated = false;
+let message;
+if(user_authenticated){
+  message = "Welcome to your homepage!";
+}else{
+  message = "Access Denied!";
+}
+console.log(message); // "Access Denied!";
+            </code></pre>
+        <pre class="fragment"><code class="javascript" data-trim>
+const user_authenticated = false;
+let message = user_authenticated ? "Welcome to your homepage!" : "Access Denied!";
+console.log(message); // "Access Denied!";
+            </code></pre>
+        <p class="fragment">NOTE: it's best practice to only use the ternary operator when the logic and values are
+          simple</p>
+      </section>
+
+      <section>
+        <h2>Arrow Function</h2>
+        <p>Similar to the ternary operator, the arrow function helps keep simple functions succinct and on 1 line</p>
+        <pre class="fragment"><code class="javascript" data-trim>
+const seasonOfLove = function(){
+  return 525600;
+}
+</code></pre>
+        <pre class="fragment"><code class="javascript" data-trim>
+const seasonOfLove = () => 525600;
+// No parameters, therefore use empty parentheses
+// One line, no need for brackets
+// and automatically returns everything after the arrow
+                        </code></pre>
+        <pre class="fragment"><code class="javascript" data-trim>
+const minutesFromYears = num_of_years => num_of_years * 525600;
+// With 1 parameter, can just use parameter without parentheses
+const add = (num1,num2) => num1 + num2;
+// With more parameters, need parentheses
+                        </code></pre>
+        <pre class="fragment"><code class="javascript" data-trim>
+const minutesFromYears = num_of_years => {
+  const leapDays = Math.floor(num_of_years / 4);
+  return (num_of_years * 525600) + leapDays;
+};
+// With larger blocks of code, can use multiple lines,
+// brackets, and an explicit return statement
+</code></pre>
+      </section>
+
+      <section>
+        <h2>Let's Develop It!</h2>
+
+        <ul>
+          <li class="fragment">In the "mainProject" folder, go into "class_1", and edit the "script.js" file</li>
+          <li class="fragment">Let's psuedcode the problem together first!</li>
+          <li class="fragment">Work in pairs to create the function</li>
+        </ul>
+        <p class="fragment">HINT:</p>
+        <pre class="fragment"><code class="javascript" data-trim>
+const students = ["Billie","Jean","Izzinot Mye"];
+// Array.prototype.push() adds an item to the end of the array.
+students.push("Love R.");
+console.log(students); // ["Billie", "Jean", "Izzinot Mye", "Love R."]
+
+// Array.prototype.splice() takes 2 arguments: an index and a count.
+// Items are removed from the array starting at the given index
+// Removal stops after the count is reached. 
+// The removed items are returned in an array.
+const removed = students.splice(2,1); // Starting at index 2, remove 1 item
+console.log(removed); // ["Izzinot Mye"]
+console.log(students); // ["Billie", "Jean", "Love R."]
+</code></pre>
       </section>
 
       <section>
@@ -209,6 +587,10 @@
 
       <section>
         <h1>Additional Resources</h1>
+        <ul>
+          <li>Array Methods</li>
+          <li>Arrow Function</li>
+        </ul>
       </section>
 
     </div>
