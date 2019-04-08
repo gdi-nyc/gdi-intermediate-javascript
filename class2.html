@@ -14,6 +14,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
   <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/custom.css">
   <link rel="stylesheet" href="css/theme/gdidefault.css" id="theme">
 
   <!-- For syntax highlighting -->
@@ -90,7 +91,14 @@ gold >= 120 ? "Sword acquired" : "{Not enough gold}";
         <section>
           <p>What Array method adds a given element to the end of the array?</p>
           <br>
-          <p class="fragment">.push()</p>
+          <div class="fragment">
+            <p>.push()</p>
+            <pre><code class="javascript" data-trim>
+const games = ["XCOM","Mario Kart","Destiny"];
+games.push("Anthem");
+console.log(games); // ["XCOM","Mario Kart","Destiny","Anthem"]
+              </code></pre>
+          </div>
         </section>
         <section>
           <p>Describe what the following function "x" does</p>
@@ -119,89 +127,365 @@ let x = function(){
       </section>
 
       <section>
-        <h2>What is an object?</h2>
+        <h2>Object</h2>
+        <p class="fragment">An object is a common data structure containing properties (variables) and methods
+          (functions)</p>
+        <pre class="fragment"><code class="javascript" data-trim>
+const object = {
+  "key"    : "value",
+  question : "What is the meaning of life?",
+  answer   : function(){ return 42 }
+}
+</code></pre>
+        <ul>
+          <li class="fragment">Notice the keys and values are separated by colons</li>
+          <li class="fragment">Notice the key+value pairings are separated by commas</li>
+          <li class="fragment">The key can have quotations marks or not. Avoid spaces in the key name, but if you must
+            have a
+            space use quotations
+            marks</li>
+          <li class="fragment">The value can be any kind of data! A number, string, array, function, even another
+            object!</li>
+        </ul>
       </section>
 
       <section>
-        <h2>Objects can represent almost anything</h2>
+        <h2>Using Objects</h2>
+        <pre class="fragment"><code class="javascript" data-trim>
+const myCat = {
+name  : "Harry",
+age   : 4,
+talk  : function(){
+    console.log("Meow!");
+  },
+state : "hungry"
+}
+            </code></pre>
+        <ul>
+          <li class="fragment">Accessing a property</li>
+          <pre class="fragment"><code class="javascript" data-trim>
+myCat.name; // Harry
+myCat.state; // hungry
+          </code></pre>
+          <li class="fragment">Reassigning a propery</li>
+          <pre class="fragment"><code class="javascript" data-trim>
+myCat.state = "full";
+myCat.state; // full
+          </code></pre>
+          <li class="fragment">Calling a method</li>
+          <pre class="fragment"><code class="javascript" data-trim>
+myCat.talk; // Meow!
+          </code></pre>
+        </ul>
       </section>
 
       <section>
-        <h2>Properties</h2>
-      </section>
-
-      <section>
-        <h2>Methods</h2>
+        <h2>"Living" Objects</h2>
+        <p class="fragment">Because object contain information about themselves within themselves, developers can
+          respresent nearly anything and give ownership
+          and responsibility to those objects</p>
+        <pre class="fragment"><code class="javascript" data-trim>
+const bob_account = {
+  number : "3230-2346-623",
+  amount : 502.56
+}
+const bank = {
+  accounts : [bob_account,sam_account,derek_account],
+  location : "643 Broadway St. NY",
+  is_fdic_insured: true
+}
+const bob = {
+  name : "Bob Bobbington",
+  age : 45,
+  bank_account : bob_account
+}
+const town = {
+  buildings : [bank,hospial,gas_station,library],
+  population : 48170,
+  state : "NY"
+}
+</code></pre>
       </section>
 
       <section>
         <h2>JSON</h2>
-        <p>A special kind of object serving as a repository for data...</p>
+        <p class="fragment">JSON is one of the most common formats used then passing information over the internet</p>
+        <ul>
+          <li class="fragment">JavaScript Object Notation</li>
+          <li class="fragment">JSON is a repository for information, represented as a raw object or array</li>
+          <li class="fragment">Contains strings, numbers, booleans, arrays, and objects</li>
+          <li class="fragment">You won't/shouldn't find methods or functions within JSON</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>JSON Example #1</h2>
+        <pre class="fragment"><code class="javascript" data-trim>
+{
+  response: 200,
+  results: [
+    {
+      user : "bobbington",
+      password: "pa$$w0rd1!"
+    },
+    {
+      user : "sarah478",
+      password: "DROPTABLEusers;"
+    },
+    {
+      user : "rockinKIDD",
+      password: "qwerty123"
+    }
+  ]
+}
+          </code></pre>
+      </section>
+      <section>
+        <h2>JSON Example #2</h2>
+        <pre><code class="javascript" data-trim>
+[
+  {
+    name: "Boom Boom Pow",
+    artist: "The Black Eyed Peas",
+    year: 2009
+  },
+  {
+    name: "Moves like Jagger",
+    artist: "Maroon 5",
+    year: 2010
+  },
+  {
+    name: "Endless Love",
+    artist: "Lionel Richie",
+    year: 1981
+  }
+]
+          </code></pre>
       </section>
 
       <section>
         <h2>Let's Develop It!</h2>
+        <p>In the "mainProject" folder, go into "class_2", and edit the "script.js" file</p>
         <ul>
-          <li>Get the script.js file from folder</li>
-          <li>Explore the object</li>
-          <li>How would I access...?</li>
+          <li>Let's explore the object in the browser</li>
+          <li>How would you do the following:
+            <ul>
+              <li>Access the question?</li>
+              <li>Change the difficulty?</li>
+              <li>Create a new property, "image_url", and set it to "games.png"</li>
+              <li>Access the 2nd item in the array?</li>
+              <li>Add "PAC-MAN" to the array?</li>
+            </ul>
+          </li>
         </ul>
       </section>
 
       <section>
         <h2>How the browser works</h2>
+        <div class="halfblock fragment">
+          <p style="text-align: center;">How do we get this...</p>
+          <img src="img/site.png" alt="" width="450px" style="max-width: none;">
+        </div>
+        <div class="halfblock fragment">
+          <p style="text-align: center;">From this?</p>
+          <img src="img/html.jpg" alt="" width="450px" style="max-width: none;">
+        </div>
       </section>
 
       <section>
         <h2>What is the DOM?</h2>
-      </section>
-
-      <section>
-        <h2>Finding an element(s)</h2>
-      </section>
-
-      <section>
-        <h2>Creating elements</h2>
-      </section>
-
-      <section>
-        <h2>Appending elements</h2>
-      </section>
-
-      <section>
-        <h2>Modifying elements</h2>
-      </section>
-
-      <section>
-        <h2>Removing elements</h2>
-      </section>
-
-      <section>
-        <h2>Let's Develop It!</h2>
+        <p class="fragment">The browser translates HTML into JavaScript objects known as <strong>the Document Object
+            Model</strong></p>
         <ul>
-          <li>Using the file from the class 2 project</li>
-          <li>Find the #content-container element</li>
-          <li>Create an p tag and add it to the element</li>
-          <li>modify the innerHTML</li>
-          <li>remove the p from the DOM</li>
+          <li class="fragment">An HTML file is just text, but JS objects are "alive"</li>
+          <li class="fragment">The browser uses the DOM along with CSS and JavaScript files to render the website
+            properly</li>
+          <li class="fragment">The nested syntax from HTML carries over into the DOM in the form of nodes</li>
         </ul>
       </section>
 
       <section>
-        <h1>BREAK</h1>
+        <h2>From HTML to the DOM</h2>
+        <div class="halfblock fragment">
+          <p style="text-align: center;">HTML</p>
+          <pre><code class="xml" data-trim>
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;My Site&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h2&gt;Some Title&lt;/h2&gt;
+    &lt;p&gt;First paragraph&lt;/p&gt;
+    &lt;p&gt;Second paragraph&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+        </div>
+        <div class="halfblock fragment">
+          <p style="text-align: center;">DOM</p>
+          <img src="img/dom.PNG" alt="">
+        </div>
+        <ul>
+          <li class="fragment">Remember, the DOM is just JavaScript!</li>
+          <li class="fragment">We can access the DOM as well as add, modify, and delete elements as we
+            like</li>
+          <li class="fragment">NOTE: only elements that are part of the DOM will be rendered</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Finding an element(s)</h2>
+        <div class="fragment">
+          <p style="text-align: center;">HTML</p>
+          <pre><code class="xml" data-trim>
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;My Site&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h2 id="mainTitle"&gt;Some Title&lt;/h2&gt;
+    &lt;p&gt;First paragraph&lt;/p&gt;
+    &lt;p&gt;Second paragraph&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+  </code></pre>
+        </div>
+        <div class="fragment">
+          <p style="text-align: center;">JavaScript</p>
+          <pre><code class="javascript" data-trim>
+// document.querySelector returns first matching element found
+const h2 = document.querySelector("#mainTitle");
+
+// document.querySelectorAll returns an array of all matching elements found
+const all_ps = document.querySelectorAll("p");
+  </code></pre>
+        </div>
+      </section>
+
+      <section>
+        <h2>Modifying elements</h2>
+        <p class="fragment">DOM nodes/elements are objects with their own properties that can be modified!</p>
+
+        <div class="fragment">
+          <p style="text-align: center;">JavaScript</p>
+          <pre><code class="javascript" data-trim>
+// document.querySelector returns first matching element found
+const h2 = document.querySelector("#mainTitle");
+h2.innerText = "Something else!";
+h2.style.color = "red"; 
+      </code></pre>
+        </div>
+
+        <div style="text-align: center;" class="halfblock fragment">
+          <p>BEFORE</p>
+          <img src="img/html_1.PNG" alt="">
+        </div>
+        <div style="text-align: center;" class="halfblock fragment">
+          <p>AFTER</p>
+          <img src="img/html_2.PNG" alt="">
+        </div>
+      </section>
+
+      <section>
+        <h2>Creating elements</h2>
+        <div class="fragment">
+          <p style="text-align: center;">JavaScript</p>
+          <pre><code class="javascript" data-trim>
+// document.createElement() creates a new node of the given tag string
+const newH3 = document.createElement("h3");
+newH3.innerText = "Some text";
+  </code></pre>
+        </div>
+        <div style="text-align: center;" class="halfblock fragment">
+          <p>BEFORE</p>
+          <img src="img/html_2.PNG" alt="">
+        </div>
+        <div style="text-align: center;" class="halfblock fragment">
+          <p>AFTER</p>
+          <img src="img/html_2.PNG" alt="">
+        </div>
+        <h4 class="fragment">Where is the h3?</h4>
+      </section>
+
+      <section>
+        <h2>Creating elements</h2>
+        <img class="fragment" src="img/dom_1.PNG" alt="" width="400px">
+        <p class="fragment">The node is not attached to the DOM, therefore it won't be rendered!</p>
+      </section>
+
+      <section>
+        <h2>Appending elements</h2>
+        <p class="fragment">Elements must be attached, or appended, to another element in the DOM to be rendered in the
+          browser</p>
+        <pre class="fragment"><code class="javascript" data-trim>
+// document.createElement() creates a new node of the given tag string
+const newH3 = document.createElement("h3");
+newH3.innerText = "Some text";
+
+const body = document.querySelector("body"); // document.body
+body.append(newH3);
+</code></pre>
+        <div class="halfblock fragment">
+          <img src="img/dom_2.PNG" alt="" width="400px">
+        </div>
+        <div class="halfblock fragment">
+          <img src="img/html_3.PNG" alt="" width="400px">
+        </div>
+      </section>
+
+      <section>
+        <h2>Removing elements</h2>
+        <p class="fragment">Removing elements from the DOM is as easy as .remove()</p>
+        <pre class="fragment"><code class="javascript" data-trim>
+newH3.remove();
+            </code></pre>
+        <div class="halfblock fragment">
+          <img src="img/dom.PNG" alt="" width="300px" style="max-height: none;">
+        </div>
+        <div class="halfblock fragment">
+          <img src="img/html_2.PNG" alt="" width="400px">
+        </div>
+        <ul>
+          <li class="fragment">.remove() removes the element and all of it's attached children from the DOM</li>
+          <li class="fragment">If you keep a reference to the object (like in a variable), it still exists, just not as
+            part of the DOM!</li>
+        </ul>
       </section>
 
       <section>
         <h2>Let's Develop It!</h2>
+        <p>In the "mainProject" folder, go into "class_2", and edit the "script.js" file</p>
         <ul>
-          <li>Create the function described in the script.js file</li>
+          <li>Store the #content-container element in a variable</li>
+          <li>Create a function "addP" that takes a string for a parameter. The function:
+            <ul>
+              <li>Creates a &lt;p&gt; element</li>
+              <li>Uses the string argument to set the .innerText of the &lt;p&gt;</li>
+              <li>Appends the &lt;p&gt; to the #content-container</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h1>&lt;br /&gt;</h1>
+      </section>
+
+      <section>
+        <h2>Let's Develop It!</h2>
+        <p>In the "mainProject" folder, go into "class_2", and edit the "script.js" file</p>
+        <ul>
+          <li>Create the "addQuestion" function described in the "script.js" file</li>
         </ul>
       </section>
 
 
       <section>
         <h2>Take Home Assignment</h2>
-        <p>Finish the function, we'll be using it for the rest of the class!</p>
+        <ul>
+          <li>Finish the "addQuestion" function - we'll be using it for the rest of the class!</li>
+          <li>Tackle as many bonuses as you can!</li>
+        </ul>
       </section>
 
       <section>

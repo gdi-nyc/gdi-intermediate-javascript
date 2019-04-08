@@ -7,9 +7,12 @@ const questionObj = {
     "incorrect_answers": ["Pixeltail Games", "Ubisoft", "Electronic Arts"]
 };
 
-//// #1 ////
+//// #1a ////
 // Use document.querySelector() to select the "#content-container" 
 // <div> and store it in a variable called "containerDiv"
+
+//// #1b ////
+// Create the "addP" function here
 
 //// #2 ////
 // Here, copy and paste your "randomizeArray" from last class (see script_SOLUTION.js if you need it)

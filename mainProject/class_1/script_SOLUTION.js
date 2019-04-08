@@ -4,6 +4,7 @@ const randomItem = function (arr) {
     const randIndex = Math.floor(randNum * arr.length);
     return arr[randIndex];
 }
+// NOTE: open the index.html file to run this script in the browser
 
 // Create a function called "randomizeArray" that takes an array as an argument
 // and returns a new array where items from the given array are randomly 

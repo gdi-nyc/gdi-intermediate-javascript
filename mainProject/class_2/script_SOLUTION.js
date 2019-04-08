@@ -12,6 +12,14 @@ const questionObj = {
 // <div> and store it in a variable called "containerDiv"
 const containerDiv = document.querySelector("#content-container");
 
+//// #1b ////
+// Create the "addP" function here
+const addP = str => {
+    const p = document.createElement("p");
+    p.innerText = str;
+    containerDiv.append(p);
+}
+
 //// #2 ////
 // Here, copy and paste your "randomizeArray" from last class (see script_SOLUTION.js if you need it)
 const randomizeArray = arr => {

@@ -81,7 +81,7 @@
           <p>Girl Develop It is here to provide affordable and accessible programs to learn software through mentorship
             and hands-on instruction.</p>
           <ul>
-            <li>"Who are you people?"</li>
+            <li>Instructor Intro</li>
             <li>Classroom == Safe Space</li>
             <li>Help each other</li>
             <li>Have fun!</li>
@@ -99,12 +99,12 @@
           <li class="fragment">Your keyboard is lava (for instructors)</li>
         </ul>
       </section>
+
       <section>
         <h3>Quick Logistics!</h3>
         <div class="left-align">
           <ul>
             <li>Where's the bathroom?</li>
-            <li>Where am I?</li>
             <li>Who's camera shy?</li>
             <li>Get on Slack!</li>
           </ul>
@@ -116,7 +116,6 @@
         <ul>
           <li>What's your name?</li>
           <li>What do you hope to get out of this class?</li>
-          <li>What is one thing you've failed at?</li>
         </ul>
       </section>
 
@@ -228,6 +227,7 @@ students[0]; // "Cheryl"
 students[1]; // "Sammy"
 
 students[0] = "Billy"; // reassignment
+console.log(students); // ["Billy", "Sammy","Marty"]
 
 students[5]; // undefined
 </code></pre>
@@ -306,22 +306,6 @@ while(i < students.length){ // condition - eventually must evalauate to false!
       </section>
 
       <section>
-        <h2>"while" loop trickery</h2>
-        <p>Since each part of the loop is separate, we can often get away with more succinct code</p>
-        <pre class="fragment"><code class="javascript" data-trim>
-const students = ["Marry","Barb","Phil"];
-while(students.length){ // 0 equals false
-  const student = students.shift(); // removes first item from array
-  console.log(student);
-}
-</code></pre>
-        <pre class="fragment"><code class="javascript" data-trim>
-const students = ["Marry","Barb","Phil"];
-while(students.length) console.log(students.shift()); // brackets optional on 1 line
-</code></pre>
-        <p class="fragment">WARNING: Beware the infinite "while" loop where the condition is always true!</p>
-      </section>
-      <section>
         <h2>Conditionals</h2>
         <ul>
           <li class="fragment">Conditional statements allow for code to be differentially executed based on specific
@@ -347,15 +331,14 @@ if(age > 18){
 12 < 6; // false
 16 >= 4; // true
 3 <= 7; // true
-5 == 9; // false (checks equality)
-5 != 5; // false (checks inequality)
+"this" == "that"; // false (checks equality)
+"GDI" != "GDI"; // false (checks inequality)
 </code></pre>
       </section>
 
       <section>
         <h2>Boolean Operators</h2>
-        <p class="fragment">Boolean operators allow for more complex logical expressions and often involve "truthy" and
-          "falsey" values</p>
+        <p class="fragment">Boolean operators allow us to combine logical expressions in more complex ways</p>
         <pre class="fragment"><code class="javascript" data-trim>
 // ||
 // OR - returns true if one side evaluates to true
@@ -416,16 +399,6 @@ function coinFlip(){
       </section>
 
       <section>
-        <h2>Functions</h2>
-        <p class="fragment">Functions are a way to store code to be executed later</p>
-        <pre class="fragment"><code class="javascript" data-trim>
-function coinFlip(){
-  return Math.random() > .5;
-}
-</code></pre>
-      </section>
-
-      <section>
         <h2>Defining Functions</h2>
         <p class="fragment">MANY ways to define a function in JS. Here are a few basic ways.</p>
         <pre class="fragment"><code class="javascript" data-trim>
@@ -463,11 +436,11 @@ getTotalPrice(100, .08); // 108
           <li>Create a function "randomItem" that takes 1 argument: an array</li>
           <li>The function should return a random item from the given array</li>
         </ul>
-
-        <p class="fragment">HINT:</p>
-        <pre class="fragment"><code class="javascript" data-trim>
+        <div class="fragment">
+          <p>HINT:</p>
+          <pre><code class="javascript" data-trim>
 // Math.random() returns a random decimal in the range of 0 and 1
-Math.random(); // 0.231657
+Math.random(); // 0.231657 a random number in the range of 0 and 1
 
 // You can scale up a range through multiplication
 const val = Math.random() * 12; // 5.632467 a random number in the range of 0 and 12
@@ -475,36 +448,25 @@ const val = Math.random() * 12; // 5.632467 a random number in the range of 0 an
 // Math.floor() removes the decimal part of a number
 Math.floor(val); // 5
 </code></pre>
+
+        </div>
       </section>
 
       <section>
         <h2>One possible solution...</h2>
         <pre class="fragment"><code class="javascript" data-trim>
 const randomItem = function(arr){
-  const randNum = Math.random();
-  const randIndex = Math.floor(randNum * arr.length);
+  const randDecimal = Math.random();           // decimal b/t 0 and 1
+  const randNumber = randDecimal * arr.length; // number b/t 0 and arr.lenth
+  const randIndex = Math.floor(randNumber);    // whole number b/t 0 and arr.length
   return arr[randIndex];
 }
             </code></pre>
       </section>
 
       <section>
-        <h2>Wrap up</h2>
-        <ul>
-          <li class="fragment">We covered the major programming parts of WHAT JS is</li>
-          <li class="fragment">It's on YOU to discover HOW these parts can work together to solve a problem and WHY
-            certain practices are better than others (this takes time and practice!)
-            <ul>
-              <li class="fragment">For example, how would you check if a number is even?</li>
-              <li class="fragment">For example, how would you get the last item in an array?</li>
-            </ul>
-          </li>
-        </ul>
-      </section>
-
-      <section>
         <h2>Ternary Operator</h2>
-        <p>The ternary operator is another way of representing an "if/else" statement in one line</p>
+        <p class="fragment">The ternary operator is another way of representing an "if/else" statement in one line</p>
         <pre class="fragment"><code class="javascript" data-trim>
 const user_authenticated = false;
 let message;
@@ -541,6 +503,7 @@ const seasonOfLove = () => 525600;
         <pre class="fragment"><code class="javascript" data-trim>
 const minutesFromYears = num_of_years => num_of_years * 525600;
 // With 1 parameter, can just use parameter without parentheses
+
 const add = (num1,num2) => num1 + num2;
 // With more parameters, need parentheses
                         </code></pre>
@@ -556,33 +519,38 @@ const minutesFromYears = num_of_years => {
 
       <section>
         <h2>Let's Develop It!</h2>
-
+        <p>In the "mainProject" folder, go into "class_1", and edit the "script.js" file</p>
         <ul>
-          <li class="fragment">In the "mainProject" folder, go into "class_1", and edit the "script.js" file</li>
-          <li class="fragment">Let's psuedcode the problem together first!</li>
+          <li class="fragment">Let's psuedcode the "randomizeArray" function together!</li>
           <li class="fragment">Work in pairs to create the function</li>
         </ul>
-        <p class="fragment">HINT:</p>
-        <pre class="fragment"><code class="javascript" data-trim>
+        <div class="fragment">
+          <p>HINT:</p>
+          <pre><code class="javascript" data-trim>
 const students = ["Billie","Jean","Izzinot Mye"];
-// Array.prototype.push() adds an item to the end of the array.
+// .push() adds an item to the end of the array.
 students.push("Love R.");
 console.log(students); // ["Billie", "Jean", "Izzinot Mye", "Love R."]
 
-// Array.prototype.splice() takes 2 arguments: an index and a count.
+// .splice() takes 2 arguments: an index and a count.
 // Items are removed from the array starting at the given index
 // Removal stops after the count is reached. 
 // The removed items are returned in an array.
 const removed = students.splice(2,1); // Starting at index 2, remove 1 item
-console.log(removed); // ["Izzinot Mye"]
+console.log(removed); // ["Izzinot Mye"] <- It's an array!
 console.log(students); // ["Billie", "Jean", "Love R."]
 </code></pre>
+        </div>
       </section>
 
       <section>
         <h2>Take Home Assignment</h2>
-        <p>Finalize your function and slack it to me, so I can see if it's working</p>
-        <p>We'll be using this function for the rest of the class!</p>
+        <ul>
+          <li class="fragment">Finish the tasks in the "script.js" file</li>
+          <li class="fragment">Test to make sure the "randomizeArray" function works properly - we'll be using this
+            function for the rest of the course!</li>
+          <li>Tackle as many bonuses as you can!</li>
+        </ul>
       </section>
 
       <section>
@@ -593,6 +561,23 @@ console.log(students); // ["Billie", "Jean", "Love R."]
         </ul>
       </section>
 
+      <section>
+        <h2>"while" loop trickery</h2>
+        <p>Since each part of the loop is separate, we can often get away with more succinct code</p>
+        <pre class="fragment"><code class="javascript" data-trim>
+  const students = ["Marry","Barb","Phil"];
+  while(students.length){ // 0 equals false
+    const student = students.shift(); // removes first item from array
+    console.log(student);
+  }
+  </code></pre>
+        <pre class="fragment"><code class="javascript" data-trim>
+  const students = ["Marry","Barb","Phil"];
+  while(students.length) console.log(students.shift()); 
+  // No need for brackets when all on one line
+  </code></pre>
+        <p class="fragment">WARNING: Beware the infinite "while" loop where the condition is always true!</p>
+      </section>
     </div>
 
   </div>
