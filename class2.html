@@ -72,19 +72,19 @@
         </section>
         <section>
           <p>Given the array "students", how would you access the last item?</p>
-          <pre class="fragment"><code class="javascript" data-trim>
+          <pre class="fragment"><code class="javascript" data-trim contenteditable>
             const last = students[students.length-1];
           </code></pre>
         </section>
         <section>
           <p>What will the last expression evaluate to?</p>
           <br>
-          <pre><code class="javascript" data-trim>
+          <pre><code class="javascript" data-trim contenteditable>
 let gold = 100;
  
 gold >= 120 ? "Sword acquired" : "{Not enough gold}";
             </code></pre>
-          <pre class="fragment"><code class="javascript" data-trim>
+          <pre class="fragment"><code class="javascript" data-trim contenteditable>
 "{Not enough gold}"
              </code></pre>
         </section>
@@ -93,7 +93,7 @@ gold >= 120 ? "Sword acquired" : "{Not enough gold}";
           <br>
           <div class="fragment">
             <p>.push()</p>
-            <pre><code class="javascript" data-trim>
+            <pre><code class="javascript" data-trim contenteditable>
 const games = ["XCOM","Mario Kart","Destiny"];
 games.push("Anthem");
 console.log(games); // ["XCOM","Mario Kart","Destiny","Anthem"]
@@ -102,15 +102,15 @@ console.log(games); // ["XCOM","Mario Kart","Destiny","Anthem"]
         </section>
         <section>
           <p>Describe what the following function "x" does</p>
-          <pre class="fragment"><code class="javascript" data-trim>
+          <pre class="fragment"><code class="javascript" data-trim contenteditable>
 let x = () => Math.random() > .6 ? "Heads" : "Tails";
 </code></pre>
-          <pre class="fragment"><code class="javascript" data-trim>
+          <pre class="fragment"><code class="javascript" data-trim contenteditable>
 let x = function(){
   return Math.random() > .6 ? "Heads" : "Tails";
 }
 </code></pre>
-          <pre class="fragment"><code class="javascript" data-trim>
+          <pre class="fragment"><code class="javascript" data-trim contenteditable>
 let x = function(){
   const randNum = Math.random();
   if(randNum > .6){
@@ -130,7 +130,7 @@ let x = function(){
         <h2>Object</h2>
         <p class="fragment">An object is a common data structure containing properties (variables) and methods
           (functions)</p>
-        <pre class="fragment"><code class="javascript" data-trim>
+        <pre class="fragment"><code class="javascript" data-trim contenteditable>
 const object = {
   "key"    : "value",
   question : "What is the meaning of life?",
@@ -151,7 +151,7 @@ const object = {
 
       <section>
         <h2>Using Objects</h2>
-        <pre class="fragment"><code class="javascript" data-trim>
+        <pre class="fragment"><code class="javascript" data-trim contenteditable>
 const myCat = {
 name  : "Harry",
 age   : 4,
@@ -163,17 +163,17 @@ state : "hungry"
             </code></pre>
         <ul>
           <li class="fragment">Accessing a property</li>
-          <pre class="fragment"><code class="javascript" data-trim>
+          <pre class="fragment"><code class="javascript" data-trim contenteditable>
 myCat.name; // Harry
 myCat.state; // hungry
           </code></pre>
           <li class="fragment">Reassigning a propery</li>
-          <pre class="fragment"><code class="javascript" data-trim>
+          <pre class="fragment"><code class="javascript" data-trim contenteditable>
 myCat.state = "full";
 myCat.state; // full
           </code></pre>
           <li class="fragment">Calling a method</li>
-          <pre class="fragment"><code class="javascript" data-trim>
+          <pre class="fragment"><code class="javascript" data-trim contenteditable>
 myCat.talk; // Meow!
           </code></pre>
         </ul>
@@ -184,7 +184,7 @@ myCat.talk; // Meow!
         <p class="fragment">Because object contain information about themselves within themselves, developers can
           respresent nearly anything and give ownership
           and responsibility to those objects</p>
-        <pre class="fragment"><code class="javascript" data-trim>
+        <pre class="fragment"><code class="javascript" data-trim contenteditable>
 const bob_account = {
   number : "3230-2346-623",
   amount : 502.56
@@ -220,7 +220,7 @@ const town = {
 
       <section>
         <h2>JSON Example #1</h2>
-        <pre class="fragment"><code class="javascript" data-trim>
+        <pre class="fragment"><code class="javascript" data-trim contenteditable>
 {
   response: 200,
   results: [
@@ -242,7 +242,7 @@ const town = {
       </section>
       <section>
         <h2>JSON Example #2</h2>
-        <pre><code class="javascript" data-trim>
+        <pre><code class="javascript" data-trim contenteditable>
 [
   {
     name: "Boom Boom Pow",
@@ -308,7 +308,7 @@ const town = {
         <h2>From HTML to the DOM</h2>
         <div class="halfblock fragment">
           <p style="text-align: center;">HTML</p>
-          <pre><code class="xml" data-trim>
+          <pre><code class="xml" data-trim contenteditable>
 &lt;html&gt;
   &lt;head&gt;
     &lt;title&gt;My Site&lt;/title&gt;
@@ -337,7 +337,7 @@ const town = {
         <h2>Finding an element(s)</h2>
         <div class="fragment">
           <p style="text-align: center;">HTML</p>
-          <pre><code class="xml" data-trim>
+          <pre><code class="xml" data-trim contenteditable>
 &lt;html&gt;
   &lt;head&gt;
     &lt;title&gt;My Site&lt;/title&gt;
@@ -352,7 +352,7 @@ const town = {
         </div>
         <div class="fragment">
           <p style="text-align: center;">JavaScript</p>
-          <pre><code class="javascript" data-trim>
+          <pre><code class="javascript" data-trim contenteditable>
 // document.querySelector returns first matching element found
 const h2 = document.querySelector("#mainTitle");
 
@@ -368,7 +368,7 @@ const all_ps = document.querySelectorAll("p");
 
         <div class="fragment">
           <p style="text-align: center;">JavaScript</p>
-          <pre><code class="javascript" data-trim>
+          <pre><code class="javascript" data-trim contenteditable>
 // document.querySelector returns first matching element found
 const h2 = document.querySelector("#mainTitle");
 h2.innerText = "Something else!";
@@ -390,7 +390,7 @@ h2.style.color = "red";
         <h2>Creating elements</h2>
         <div class="fragment">
           <p style="text-align: center;">JavaScript</p>
-          <pre><code class="javascript" data-trim>
+          <pre><code class="javascript" data-trim contenteditable>
 // document.createElement() creates a new node of the given tag string
 const newH3 = document.createElement("h3");
 newH3.innerText = "Some text";
@@ -417,7 +417,7 @@ newH3.innerText = "Some text";
         <h2>Appending elements</h2>
         <p class="fragment">Elements must be attached, or appended, to another element in the DOM to be rendered in the
           browser</p>
-        <pre class="fragment"><code class="javascript" data-trim>
+        <pre class="fragment"><code class="javascript" data-trim contenteditable>
 // document.createElement() creates a new node of the given tag string
 const newH3 = document.createElement("h3");
 newH3.innerText = "Some text";
@@ -436,7 +436,7 @@ body.append(newH3);
       <section>
         <h2>Removing elements</h2>
         <p class="fragment">Removing elements from the DOM is as easy as .remove()</p>
-        <pre class="fragment"><code class="javascript" data-trim>
+        <pre class="fragment"><code class="javascript" data-trim contenteditable>
 newH3.remove();
             </code></pre>
         <div class="halfblock fragment">

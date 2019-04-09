@@ -15,6 +15,7 @@
 
   <link rel="stylesheet" href="css/reveal.css">
   <link rel="stylesheet" href="css/theme/gdidefault.css" id="theme">
+  <link rel="stylesheet" href="css/custom.css">
 
   <!-- For syntax highlighting -->
   <!-- light editor<link rel="stylesheet" href="lib/css/light.css">-->
@@ -71,7 +72,7 @@
         </section>
         <section>
           <p>What is wrong with the following function?</p>
-          <pre class="fragment"><code class="javascript" data-trim>
+          <pre class="fragment"><code class="javascript" data-trim contenteditable>
 function factorial(n) => {
   if (n===1) {
     return 1;
@@ -79,7 +80,7 @@ function factorial(n) => {
   return n * factorial(n-1);
 }
             </code></pre>
-          <pre class="fragment"><code class="javascript" data-trim>
+          <pre class="fragment"><code class="javascript" data-trim contenteditable>
 // Was trying to combine 2 different ways of defining a function
 // Could go with function declaration or arrow function
 function factorial(n) {
@@ -89,7 +90,7 @@ function factorial(n) {
   return n * factorial(n-1);
 }
             </code></pre>
-          <pre class="fragment"><code class="javascript" data-trim>
+          <pre class="fragment"><code class="javascript" data-trim contenteditable>
 const factorial = n => {
   if (n===1) {
     return 1;
@@ -100,7 +101,7 @@ const factorial = n => {
         </section>
         <section>
           <p>How would you access the 2nd item in the object's array?</p>
-          <pre class="fragment"><code class="javascript" data-trim>
+          <pre class="fragment"><code class="javascript" data-trim contenteditable>
 const superman = {
   name: "Kal-El",
   alter_ego: "Clark Kent",
@@ -108,19 +109,19 @@ const superman = {
   powers: ["strength","x-ray vision","indestructibility","ice breath","eye beam"]
 }  
           </code></pre>
-          <pre class="fragment"><code class="javascript" data-trim>
+          <pre class="fragment"><code class="javascript" data-trim contenteditable>
 superman.powers[1];
           </code></pre>
         </section>
         <section>
           <p>I can't see the &lt;p&gt; element I added to the DOM. Here's my "script.js" file. Why isn't it working?😭
           </p>
-          <pre class="fragment"><code class="javascript" data-trim>
+          <pre class="fragment"><code class="javascript" data-trim contenteditable>
 const container = document.querySelector(".container");
 const p = document.createElement("p");
 p.innerHTML = "Hello World!";
             </code></pre>
-          <pre class="fragment"><code class="javascript" data-trim>
+          <pre class="fragment"><code class="javascript" data-trim contenteditable>
 // Need to attach/append the newly create element to a DOM element
 container.append(p);
             </code></pre>
@@ -128,7 +129,7 @@ container.append(p);
         <section>
           <p>I made the change - my JavaScript is correct, but I still can't see the &lt;p&gt; element. Here's my
             "index.html" file. Why isn't it working?😭</p>
-          <pre class="fragment"><code class="xml" data-trim>
+          <pre class="fragment"><code class="xml" data-trim contenteditable>
 &lt;html&gt;
   &lt;head&gt;
     &lt;title&gt;Cool Site&lt;/title&gt;
@@ -138,7 +139,7 @@ container.append(p);
   &lt;/body&gt;
 &lt;/html&gt;
             </code></pre>
-          <pre class="fragment"><code class="xml" data-trim>
+          <pre class="fragment"><code class="xml" data-trim contenteditable>
 &lt;html&gt;
   &lt;head&gt;
     &lt;title&gt;Cool Site&lt;/title&gt;
@@ -155,73 +156,271 @@ container.append(p);
 
       <section>
         <h2>Synchronous JavaScript</h2>
+        <p class="fragment">JavaScript executes each line of code from top to bottom</p>
+        <pre class="fragment"><code class="javascript" data-trim contenteditable>
+const name = "Bob";
+const age = 42;
+console.log(name); // Bob
+console.log(age); // 42
+</code></pre>
+        <p class="fragment">This is a common and expected behavior of code execution</p>
       </section>
 
       <section>
         <h2>Asynchronous JavaScript</h2>
+        <p class="fragment">There are instances when code will get executed, but NOT resolve immediately, such
+          as requesting information from an API</p>
+        <pre class="fragment"><code class="javascript" data-trim contenteditable>
+const URL = "https://randomuser.me/api";
+let data;
+fetch(URL) // Requesting JSON from API (like $.ajax)
+  .then(response=>response.json())
+  .then(json=>{
+    data=json;
+  })
+console.log(data); // undefined
+</code></pre>
+        <p class="fragment">During code execution, the fetch() call sends a request to a URL, but that could take
+          forever (~6ms)! JavaScript is not going to wait - it will move onto the console.log() and let callbacks handle
+          the response from fetch()</p>
       </section>
 
       <section>
-        <h2>Let's Develop It!</h2>
+        <h2>Asynchronous JavaScript</h2>
+        <p>There are instances when code will get executed, but NOT resolve immediately, such
+          as requesting information from an <span class="emph">API</span></p>
+        <pre><code class="javascript" data-trim contenteditable>
+const URL = "https://randomuser.me/api";
+let data;
+fetch(URL) // Requesting JSON from API (like $.ajax)
+  .then(response=>response.json())
+  .then(json=>{
+    data=json;
+  })
+console.log(data); // undefined
+</code></pre>
+        <p>During code execution, the fetch() call sends a request to a URL, but that could take
+          forever (~6ms)! JavaScript is not going to wait - it will move onto the console.log() and let <span
+            class="emph">callbacks</span> handle
+          the response from fetch()</p>
+      </section>
+
+      <section>
+        <h2>Let's Develop It! (Instructor only)</h2>
         <ul>
-          <li>Defind variable</li>
-          <li>SetTimeout and redefine the variable</li>
-          <li>Access variable</li>
+          <li>Run the previous slides's code in the browser</li>
+          <li>console.log() the data after a few seconds</li>
         </ul>
-      </section>
-
-      <section>
-        <h2>Callbacks</h2>
-        <p>What's the difference between a function and calling a function?</p>
       </section>
 
       <section>
         <h2>API's</h2>
-      </section>
-
-      <section>
-        <h2>Asynchronous Nature of calling APIs</h2>
-      </section>
-
-      <section>
-        <h2>Let's Develop It!</h2>
+        <p class="fragment">API stands for Application Program Interface</p>
         <ul>
-          <li></li>
-          <li></li>
-          <li></li>
+          <li class="fragment">API's allow computers to communicate to other computers, usually through JSON</li>
+          <li class="fragment">For Example, the <a target="_blank" href="https://randomuser.me/">Random User API</a>
+            returns JSON of a
+            typical user as an object with random properties like name, address, passwords, and phone numbers - it's
+            also a
+            great introductory API!</li>
+        </ul>
+        <br>
+        <br>
+        <div class="fragment">
+          <p>Example JSON from Random User API</p>
+          <pre><code class="javascript" data-trim contenteditable>
+{"results":[{"gender":"female","name":{"title":"ms","first":"carolyn","last":"brooks"},"location":{"street":"5508 king street","city":"wakefield","state":"warwickshire","postcode":"M0 5UX","coordinates":{"latitude":"14.0309","longitude":"165.8724"},"timezone":{"offset":"+8:00","description":"Beijing, Perth, Singapore, Hong Kong"}},"email":"carolyn.brooks@example.com","login":{"uuid":"31cd84ee-8a01-4254-b322-675ef00de0fa","username":"bluegorilla497","password":"birthday","salt":"Nbhjusmn","md5":"6bc053eccfdc3078acab5d96b5278f0f","sha1":"371147ed185f134a65e0f201b0f82b5e55ff2223","sha256":"60fc47a547217783428ffc170709adc8bad0efa5404fff41282c57d9b37c33ba"},"dob":{"date":"1962-08-29T20:41:30Z","age":56},"registered":{"date":"2016-12-08T04:51:11Z","age":2},"phone":"028 3843 5424","cell":"0770-555-954","id":{"name":"NINO","value":"LH 29 72 52 O"},"picture":{"large":"https://randomuser.me/api/portraits/women/95.jpg","medium":"https://randomuser.me/api/portraits/med/women/95.jpg","thumbnail":"https://randomuser.me/api/portraits/thumb/women/95.jpg"},"nat":"GB"}],"info":{"seed":"ed31d9a21fc2e60e","results":1,"page":1,"version":"1.2"}}
+            </code></pre>
+        </div>
+
+      </section>
+
+      <section>
+        <h2>An API cautionary tale...</h2>
+        <ul>
+          <li class="fragment">Typically, API servers are set up to protect themselves from excessive requests from a
+            single source, or IP address</li>
+          <li class="fragment">When too many requests come in, the server will often blacklist the IP address for 15
+            minutes or more</li>
+          <li class="fragment">This is why the last activity was just for the instructor to do!</li>
+          <li class="fragment">In the later activities, if WiFi's IP address is blacklisted - just use the backup data
+            provided as a substitute</li>
         </ul>
       </section>
 
       <section>
-        <h1>BREAK</h1>
+        <h2>Let's Develop It!</h2>
+        <ul>
+          <li>In your browser, go to the url - <a href="https://randomuser.me/api"
+              target="_blank">https://randomuser.me/api</a></li>
+          <li>Open the browser's console and store the JSON (copy and paste it) in a variable "json"</li>
+          <li>How would you access the following properties:
+            <ul>
+              <li>cell number</li>
+              <li>username</li>
+              <li>API version</li>
+            </ul>
+          </li>
+        </ul>
+
+        <br>
+        <br>
+        <div class="fragment">
+          <p>Backup JSON from Random User API - just in case!</p>
+          <pre><code class="javascript" data-trim contenteditable>
+  {"results":[{"gender":"female","name":{"title":"ms","first":"carolyn","last":"brooks"},"location":{"street":"5508 king street","city":"wakefield","state":"warwickshire","postcode":"M0 5UX","coordinates":{"latitude":"14.0309","longitude":"165.8724"},"timezone":{"offset":"+8:00","description":"Beijing, Perth, Singapore, Hong Kong"}},"email":"carolyn.brooks@example.com","login":{"uuid":"31cd84ee-8a01-4254-b322-675ef00de0fa","username":"bluegorilla497","password":"birthday","salt":"Nbhjusmn","md5":"6bc053eccfdc3078acab5d96b5278f0f","sha1":"371147ed185f134a65e0f201b0f82b5e55ff2223","sha256":"60fc47a547217783428ffc170709adc8bad0efa5404fff41282c57d9b37c33ba"},"dob":{"date":"1962-08-29T20:41:30Z","age":56},"registered":{"date":"2016-12-08T04:51:11Z","age":2},"phone":"028 3843 5424","cell":"0770-555-954","id":{"name":"NINO","value":"LH 29 72 52 O"},"picture":{"large":"https://randomuser.me/api/portraits/women/95.jpg","medium":"https://randomuser.me/api/portraits/med/women/95.jpg","thumbnail":"https://randomuser.me/api/portraits/thumb/women/95.jpg"},"nat":"GB"}],"info":{"seed":"ed31d9a21fc2e60e","results":1,"page":1,"version":"1.2"}}
+              </code></pre>
+        </div>
       </section>
 
       <section>
-        <h2>Events</h2>
+        <h2>Let's Develop It! - Answers</h2>
+        <ul>
+          <li>cell number</li>
+          <li>username</li>
+          <li>API version</li>
+        </ul>
+        <pre><code class="javascript" data-trim contenteditable>
+json.results[0].cell;
+json.results[0].login.username;
+json.info.version;
+</code></pre>
       </section>
 
       <section>
-        <h2>Event Handlers</h2>
+          <h1>BREAK</h1>
+        </section>
+
+      <section>
+        <h2>Callbacks</h2>
+        <p class="fragment">A callback is a function that is passed into another function to be called later</p>
+        <ul>
+          <li class="fragment">We define functions and typically call them directly</li>
+          <pre class="fragment"><code class="javascript" data-trim contenteditable>
+const add = (a,b) => a + b;
+add(1,3); // 4
+</code></pre>
+          <li class="fragment">However, functions are variables, too, and can be passed as arguments!</li>
+          <pre class="fragment"><code class="javascript" data-trim contenteditable>
+combineArray([1,2,3], add); // 6
+              </code></pre>
+        </ul>
+      </section>
+      <section>
+        <h2>Callbacks</h2>
+        <ul>
+              <li class="fragment">The function being passed is known as a callback</li>
+              <li class="fragment">The function taking the callback will call it later</li>
+                <pre class="fragment"><code class="javascript" data-trim contenteditable>
+const add = (a,b) => a + b;
+
+const combineArray = (arr,combiningFunction) => {
+  let total = arr[0];
+  for(let i = 1; i < arr.length; i++){
+    total = combiningFunction(total, arr[i]);
+  }
+  return total;
+}
+
+combineArray([1,2,3], add); // 6
+</code></pre>
+        </ul>
+        <p class="fragment">NOTE: when passing a callback, do NOT use parenthesis, which would immediately invoke the function</p>
+      </section>
+      
+      <section>
+        <h2>Using fetch()</h2>
+        <p class="fragment">fetch() is a default function in the browser that can make HTTP requests</p>
+        <ul>
+          <li class="fragment">fetch() takes a URL string, which it uses to make the request</li>
+          <pre class="fragment"><code class="javascript" data-trim contenteditable>
+const URL = "https://randomuser.me/api";
+fetch(URL);
+          </code></pre>
+          <li class="fragment">A Promise object is returned, which has a .then() method</li>
+          <li class="fragment">.then() takes a callback and passes a single argument to the callback!</li>
+        </ul>
+            <pre class="fragment"><code class="javascript" data-trim contenteditable>
+const URL = "https://randomuser.me/api";
+const handleResponse = response => {
+  // do something with response
+}
+fetch(URL).then(handleResponse);
+            </code></pre>
       </section>
 
       <section>
         <h2>Let's Develop It!</h2>
+        <pre><code class="javascript" data-trim contenteditable>
+const URL = "https://randomuser.me/api";
+const handleResponse = response =>{
+  console.log(response);
+}
+fetch(URL).then(handleResponse);
+            </code></pre>
+          <p>Run the above code in the browser</p>
+        <ol style="font-size:28px;">
+          <li>What is passed into the "handleResponse" callback?</li>
+          <li>Explore the Response object and find the .json() method under __proto__</li>
+          <li>Call the .json() method within the console.log() - what does it return?</li>
+          <li>Have the "handleResponse" return response.json()</li>
+          <li>Attach another .then() to the previous .then() and provide the function "handleJSON" as its argument</li>
+          <li>Define the "handleJSON" function - console.log() the data passed into it from the second .then()</li>
+        </ol>
+      </section>
+
+      <section>
+        <h2>Let's Develop It! - Answer</h2>
+        <pre><code class="javascript" data-trim contenteditable>
+const URL = "https://randomuser.me/api";
+const handleResponse = response => response.json();
+const handleJSON = json => console.log(json);
+fetch(URL).then(handleResponse).then(handleJSON);
+            </code></pre>
+          <p>The "handleJSON" function should console.log() the same object you can see when going directly to "https://randomuser.me/api" in the browser</p>
+      </section>
+
+
+      <section>
+        <h2>One more thing...</h2>
+        <pre><code class="javascript" data-trim contenteditable>
+const URL = "https://randomuser.me/api";
+const handleResponse = response => response.json();
+const handleJSON = json => {
+  // only scope where the response JSON exists!
+}
+fetch(URL).then(handleResponse).then(handleJSON);
+                        </code></pre>
         <ul>
-          <li></li>
-          <li></li>
-          <li></li>
+          <li class="fragment">The JSON from the response CANNOT be accessed synchronously</li>
+          <li class="fragment">The JSON only exists within the "handleJSON" callback - so it's the only place we can actually make use of it!</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Let's Develop It!</h2>
+        <p>In the "mainProject" folder, go into "class_3", and edit the "script.js" file</p>
+        <ul>
+          <li>Follow the instructions for making the "addQuestions" function and modifying some previous code</li>
+          <li>Be sure to explore what data the API sends back and get a good grasp of the flow of information</li>
         </ul>
       </section>
 
       <section>
         <h2>Take Home Assignment</h2>
-        <p></p>
+        <ul>
+            <li>Finish all of the tasks in the "script.js" file - we'll be using it for the last class!</li>
+            <li>Tackle as many bonuses as you can!</li>
+          </ul>
       </section>
 
       <section>
         <h1>Additional Resources</h1>
         <ul>
           <li>JS Promises</li>
+          <li><a
+              href="https://chrome.google.com/webstore/detail/json-formatter/bcjindcccaagfpapjjmafapmmgkkhgoa?hl=en">JSON
+              Formatter - Chrome Extension</a></li>
         </ul>
       </section>
 

@@ -60,3 +60,8 @@ div.left-align {
     position: static;
     width: auto;
 }
+
+.emph {
+    color: #f05b62;
+    font-weight: 700 !important;
+}
