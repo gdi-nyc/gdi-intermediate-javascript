@@ -61,7 +61,7 @@
           <li>Review Quiz</li>
           <li>Asynchronous JS</li>
           <li>API's</li>
-          <li>Handling Events</li>
+          <li>fetch()</li>
         </ul>
       </section>
 
@@ -81,8 +81,8 @@ function factorial(n) => {
 }
             </code></pre>
           <pre class="fragment"><code class="javascript" data-trim contenteditable>
-// Was trying to combine 2 different ways of defining a function
-// Could go with function declaration or arrow function
+// It's trying to combine 2 different ways of defining a function
+// Could go with function declaration...
 function factorial(n) {
   if (n===1) {
     return 1;
@@ -91,6 +91,7 @@ function factorial(n) {
 }
             </code></pre>
           <pre class="fragment"><code class="javascript" data-trim contenteditable>
+// ...or arrow function
 const factorial = n => {
   if (n===1) {
     return 1;
@@ -110,7 +111,7 @@ const superman = {
 }  
           </code></pre>
           <pre class="fragment"><code class="javascript" data-trim contenteditable>
-superman.powers[1];
+superman.powers[1]; // x-ray vision
           </code></pre>
         </section>
         <section>
@@ -127,7 +128,7 @@ container.append(p);
             </code></pre>
         </section>
         <section>
-          <p>I made the change - my JavaScript is correct, but I still can't see the &lt;p&gt; element. Here's my
+          <p>I made the change - my JavaScript is correct, but I still can't see the &lt;p&gt; element on the website. Here's my
             "index.html" file. Why isn't it working?😭</p>
           <pre class="fragment"><code class="xml" data-trim contenteditable>
 &lt;html&gt;
@@ -169,7 +170,7 @@ console.log(age); // 42
       <section>
         <h2>Asynchronous JavaScript</h2>
         <p class="fragment">There are instances when code will get executed, but NOT resolve immediately, such
-          as requesting information from an API</p>
+          as requesting information from an <span class="emph">API</span> server</p>
         <pre class="fragment"><code class="javascript" data-trim contenteditable>
 const URL = "https://randomuser.me/api";
 let data;
@@ -181,14 +182,13 @@ fetch(URL) // Requesting JSON from API (like $.ajax)
 console.log(data); // undefined
 </code></pre>
         <p class="fragment">During code execution, the fetch() call sends a request to a URL, but that could take
-          forever (~6ms)! JavaScript is not going to wait - it will move onto the console.log() and let callbacks handle
-          the response from fetch()</p>
+          a long time (~6ms)! JavaScript is not going to wait - it will move onto the console.log() and let <span
+          class="emph">callbacks</span> handle
+          the response</p>
       </section>
 
       <section>
-        <h2>Asynchronous JavaScript</h2>
-        <p>There are instances when code will get executed, but NOT resolve immediately, such
-          as requesting information from an <span class="emph">API</span></p>
+        <h2>Let's Develop It! (Instructor only)</h2>
         <pre><code class="javascript" data-trim contenteditable>
 const URL = "https://randomuser.me/api";
 let data;
@@ -198,18 +198,10 @@ fetch(URL) // Requesting JSON from API (like $.ajax)
     data=json;
   })
 console.log(data); // undefined
-</code></pre>
-        <p>During code execution, the fetch() call sends a request to a URL, but that could take
-          forever (~6ms)! JavaScript is not going to wait - it will move onto the console.log() and let <span
-            class="emph">callbacks</span> handle
-          the response from fetch()</p>
-      </section>
-
-      <section>
-        <h2>Let's Develop It! (Instructor only)</h2>
+          </code></pre>
         <ul>
-          <li>Run the previous slides's code in the browser</li>
-          <li>console.log() the data after a few seconds</li>
+          <li>Run the previous slides' code in the browser</li>
+          <li>console.log(data) again after a few seconds</li>
         </ul>
       </section>
 
@@ -217,8 +209,8 @@ console.log(data); // undefined
         <h2>API's</h2>
         <p class="fragment">API stands for Application Program Interface</p>
         <ul>
-          <li class="fragment">API's allow computers to communicate to other computers, usually through JSON</li>
-          <li class="fragment">For Example, the <a target="_blank" href="https://randomuser.me/">Random User API</a>
+          <li class="fragment">API's allow computers to communicate with other computers, usually through JSON</li>
+          <li class="fragment">For Example, the <a target="_blank" href="https://randomuser.me/api">Random User API</a>
             returns JSON of a
             typical user as an object with random properties like name, address, passwords, and phone numbers - it's
             also a
@@ -242,8 +234,8 @@ console.log(data); // undefined
             single source, or IP address</li>
           <li class="fragment">When too many requests come in, the server will often blacklist the IP address for 15
             minutes or more</li>
-          <li class="fragment">This is why the last activity was just for the instructor to do!</li>
-          <li class="fragment">In the later activities, if WiFi's IP address is blacklisted - just use the backup data
+          <li class="fragment">This is why the last activity was just for the instructor!</li>
+          <li class="fragment">In the later activities, if your wifi's IP address is blacklisted - just use the backup data
             provided as a substitute</li>
         </ul>
       </section>
@@ -275,11 +267,6 @@ console.log(data); // undefined
 
       <section>
         <h2>Let's Develop It! - Answers</h2>
-        <ul>
-          <li>cell number</li>
-          <li>username</li>
-          <li>API version</li>
-        </ul>
         <pre><code class="javascript" data-trim contenteditable>
 json.results[0].cell;
 json.results[0].login.username;
@@ -288,12 +275,8 @@ json.info.version;
       </section>
 
       <section>
-          <h1>BREAK</h1>
-        </section>
-
-      <section>
         <h2>Callbacks</h2>
-        <p class="fragment">A callback is a function that is passed into another function to be called later</p>
+        <p class="fragment">A callback is a function that is passed into another function as an argument to be called later</p>
         <ul>
           <li class="fragment">We define functions and typically call them directly</li>
           <pre class="fragment"><code class="javascript" data-trim contenteditable>
@@ -302,30 +285,64 @@ add(1,3); // 4
 </code></pre>
           <li class="fragment">However, functions are variables, too, and can be passed as arguments!</li>
           <pre class="fragment"><code class="javascript" data-trim contenteditable>
-combineArray([1,2,3], add); // 6
+const numbers = [1,2,3];
+combineArray(numbers, add); // We'll define "combineArray" in a sec!
               </code></pre>
+        </ul>
+        <p class="fragment">NOTE: when passing a callback, do NOT use parenthesis, which would immediately invoke the function</p>
+      </section>
+      <section>
+        <h2>Callbacks</h2>
+        <ul>
+              <li class="fragment">The function being passed as an argument is known as a callback</li>
+                <pre class="fragment"><code class="javascript" data-trim contenteditable>
+const add = (a,b) => a + b;
+
+/**
+ * Combines each element of the given array
+ * using the given combining function.
+ */
+const combineArray = (arr,combiningFunction) => {
+  let total = arr[0];
+  for(let i = 1; i < arr.length; i++){
+    total = combiningFunction(total, arr[i]); // callback called here
+  }
+  return total;
+}
+
+const numbers = [1,2,3];
+combineArray(numbers, add); // 6
+</code></pre>
         </ul>
       </section>
       <section>
         <h2>Callbacks</h2>
         <ul>
-              <li class="fragment">The function being passed is known as a callback</li>
-              <li class="fragment">The function taking the callback will call it later</li>
+              <li class="fragment">The function recieving the callback is known as a higher-order function</li>
+              <li class="fragment">Higher-order functions separate logic and allow developers to determine how they want to handle processing data</li>
                 <pre class="fragment"><code class="javascript" data-trim contenteditable>
-const add = (a,b) => a + b;
+const stringify = (a,b) => String(a) + String(b);
 
+/**
+ * Combines each element of the given array
+ * using the given combining function.
+ */
 const combineArray = (arr,combiningFunction) => {
   let total = arr[0];
   for(let i = 1; i < arr.length; i++){
-    total = combiningFunction(total, arr[i]);
+    total = combiningFunction(total, arr[i]); // callback called here
   }
   return total;
 }
 
-combineArray([1,2,3], add); // 6
+const numbers = [1,2,3];
+combineArray(numbers, stringify); // "123"
 </code></pre>
         </ul>
-        <p class="fragment">NOTE: when passing a callback, do NOT use parenthesis, which would immediately invoke the function</p>
+      </section>
+
+      <section>
+        <h1>BREAK</h1>
       </section>
       
       <section>
@@ -360,12 +377,12 @@ fetch(URL).then(handleResponse);
             </code></pre>
           <p>Run the above code in the browser</p>
         <ol style="font-size:28px;">
-          <li>What is passed into the "handleResponse" callback?</li>
-          <li>Explore the Response object and find the .json() method under __proto__</li>
-          <li>Call the .json() method within the console.log() - what does it return?</li>
-          <li>Have the "handleResponse" return response.json()</li>
-          <li>Attach another .then() to the previous .then() and provide the function "handleJSON" as its argument</li>
-          <li>Define the "handleJSON" function - console.log() the data passed into it from the second .then()</li>
+          <li class="fragment">What is passed into the "handleResponse" callback?</li>
+          <li class="fragment">Explore the Response object and find the .json() method under __proto__</li>
+          <li class="fragment">Call the .json() method within the console.log() - what does it return?</li>
+          <li class="fragment">Have the "handleResponse" return response.json()</li>
+          <li class="fragment">Attach another .then() to the previous .then() and provide the function "handleJSON" as its argument</li>
+          <li class="fragment">Define the "handleJSON" function - console.log() the data passed into it from the second .then()</li>
         </ol>
       </section>
 
@@ -377,19 +394,21 @@ const handleResponse = response => response.json();
 const handleJSON = json => console.log(json);
 fetch(URL).then(handleResponse).then(handleJSON);
             </code></pre>
-          <p>The "handleJSON" function should console.log() the same object you can see when going directly to "https://randomuser.me/api" in the browser</p>
+          <p>The "handleJSON" function should console.log() the same object you can see when going directly to <a href="https://randomuser.me/api" target="_blank">https://randomuser.me/api</a> in the browser</p>
       </section>
 
 
       <section>
-        <h2>One more thing...</h2>
+        <h2>Remember from earlier...</h2>
         <pre><code class="javascript" data-trim contenteditable>
 const URL = "https://randomuser.me/api";
-const handleResponse = response => response.json();
-const handleJSON = json => {
-  // only scope where the response JSON exists!
-}
-fetch(URL).then(handleResponse).then(handleJSON);
+let data;
+fetch(URL)
+  .then(response=>response.json())
+  .then(json=>{
+    data = json; // setting data!
+  })
+console.log(data); // undefined...wait, what!?
                         </code></pre>
         <ul>
           <li class="fragment">The JSON from the response CANNOT be accessed synchronously</li>
@@ -410,6 +429,7 @@ fetch(URL).then(handleResponse).then(handleJSON);
         <h2>Take Home Assignment</h2>
         <ul>
             <li>Finish all of the tasks in the "script.js" file - we'll be using it for the last class!</li>
+            <li>Practice using some of the other APIs list <a href="https://github.com/toddmotto/public-apis">here</a></li>
             <li>Tackle as many bonuses as you can!</li>
           </ul>
       </section>
@@ -421,9 +441,18 @@ fetch(URL).then(handleResponse).then(handleJSON);
           <li><a
               href="https://chrome.google.com/webstore/detail/json-formatter/bcjindcccaagfpapjjmafapmmgkkhgoa?hl=en">JSON
               Formatter - Chrome Extension</a></li>
+              <li><a href="https://github.com/toddmotto/public-apis" target="_blank">Public API List</a></li>          
         </ul>
       </section>
 
+      <section>
+        <h2>More API's!</h2>
+        <ul>
+          <li>https://medium.com/@vicbergquist/18-fun-apis-for-your-next-project-8008841c7be9</li>
+          <li></li>
+          <li></li>
+        </ul>
+      </section>
     </div>
 
   </div>

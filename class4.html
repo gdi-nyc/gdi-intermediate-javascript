@@ -139,44 +139,227 @@ console.log(info); // undefined
             </code></pre>
         </section>
       </section>
-
       
       <section>
           <h2>Events</h2>
+          <p class="fragment">DOM Events are particular moments that occur to the document or individual elements</p>
+          <br>
+          <p class="fragment">For example, when the users:</p>
+          <ul>
+            <li class="fragment">scrolls on the page</li>
+            <li class="fragment">clicks an elements</li>
+            <li class="fragment">presses a certain key</li>
+          </ul>
+          <br>
+          <br>
+
+          <p class="fragment">Check out <a href="https://developer.mozilla.org/en-US/docs/Web/Events" target="_blank">all of the events</a> that can occur on a website</p>
         </section>
   
         <section>
           <h2>Event Handlers</h2>
+          <p class="fragment">An event handler is a callback that can be assigned to an element to trigger when an event occurs</p>
+          <pre class="fragment"><code class="javascript" data-trim contenteditable>
+const button = document.querySelector("button");
+button.addEventListener("click",handleClick);
+function handleClick(event){
+  // event is an Event object with information about the event
+  alert("Don't press me!");
+}
+</code></pre>
         </section>
         
       <section>
         <h2>Let's Develop It!</h2>
+        <p>In the "mainProject" folder, go into "class_4", and edit the "script.js" file</p>
         <ul>
-          <li>Finish up last few tasks</li>
-          <li></li>
-          <li></li>
+          <li>Finish up last tasks!</li>
+        </ul>
+        <pre><code class="javascript" data-trim contenteditable>
+const button = document.querySelector("button");
+button.addEventListener("click",handleClick);
+function handleClick(event){
+  // event is an Event object with information about the event (check it out!)
+  alert("Don't press me!");
+}
+</code></pre>
+      </section>
+
+      <section>
+          <h1>&lt;br/&gt;</h1>
+        </section>
+  
+      <section>
+        <h2>Working with other APIs</h2>
+        <p class="fragment">Not all APIs are created equal - 3 main types</p>
+        <ul>
+          <li class="fragment">Open to all (what we've been using)</li>
+          <li class="fragment">Requires developer account and authentication key...
+            <ul>
+              <li class="fragment">can be part of URL</li>
+              <li class="fragment">can only go in request "header"</li>
+            </ul>
+          </li>
         </ul>
       </section>
 
       <section>
-        <h1>BREAK</h1>
+        <h2>APIs open to all</h2>
+        <p class="fragment">Open APIs like this are hard to come by, so keep the following in mind:</p>
+        <ul>
+          <li class="fragment">Free!</li>
+          <li class="fragment">Since you are not required to prove your identity, this kind of API server will often put a low limit on how many requests can be made from the same IP address</li>
+          <li class="fragment">A server is costly to maintain, and without proper backing many of these kinds of API servers shut down</li>
+        </ul>
       </section>
 
       <section>
-        <h2>Working with API's</h2>
+        <h2>APIs open to all - Example</h2>
+        <pre class="fragment"><code class="javascript" data-trim contenteditable>
+const URL = "http://taco-randomizer.herokuapp.com/random/";
+fetch(URL)
+  .then(response=>response.json())
+  .then(console.log)
+</code></pre>
       </section>
 
+      <section>
+        <h2>APIs with key in URL</h2>
+        <p class="fragment">This type of API will require you have a developer account - sometimes you can simply sign up, while other times you'll need to fill out a small application to explain your project</p>
+        <ul>
+          <li class="fragment">Usually free</li>
+          <li class="fragment">The owners just want to make sure anyone who accesses their server is doing so legitimately and not going to abuse the priveledge</li>
+          <li class="fragment"><i>You may be asked to provide the domain from which requests will come from - this is another security measure</i></li>
+          <li class="fragment">The request limit is usually NOT done by IP address, but number of requests per unit of time</li>
+        </ul>
+      </section>
+
+      <section>
+          <h2>APIs with key in URL - Example</h2>
+          <pre class="fragment"><code class="javascript" data-trim contenteditable>
+const BASE_API = "https://api.nasa.gov/planetary/apod"; // NASA API
+const API_KEY = "ia3zj9BseiAa6E0cRJG18hVlq4Jq6gV5sO4I0j6O";
+
+const URL = BASE_API + "?api_key=" + API_KEY;
+// "?api_key=" sets a URL parameter
+// Read the documentation for exact property name
+
+fetch(URL)
+  .then(response=>response.json())
+  .then(console.log)
+  </code></pre>
+        </section>
+      <section>
+        <h2>APIs with key in request "header"</h2>
+        <p class="fragment">Need developer account - sometimes sign up and/or fill out application</p>
+        <ul>
+          <li class="fragment">Usually free</li>
+          <li class="fragment">API key passed through request "header"</li>
+          <li class="fragment"><i>May have to provide the domain from which requests will come from</i></li>
+          <li class="fragment">The request limit is usually NOT done by IP address, but number of requests per unit of time</li>
+        </ul>
+      </section>
+      <section>
+          <h2>APIs with key in request "header" - Example</h2>
+          <pre class="fragment"><code class="javascript" data-trim contenteditable>
+// Fav Quotes API
+const URL = "https://favqs.com/api/qotd";
+
+const API_KEY = "f68e9bc20dad34bdd6694488ec5643d3";
+
+const options = {
+  method:"GET",
+  headers: {
+    "Content-Type" : "application/json",
+    "Authorization": "Token token=" + URL // specified in documentation
+  }
+}
+
+fetch(URL, options)
+  .then(response=>response.json())
+  .then(data=>console.log(data.quote))
+  </code></pre>
+        </section>
       <section>
         <h2>Reading Documentation</h2>
+        <p class="fragment">API Documentation is written by developers to help other developers understand how to use their API</p>
+        <br>
+        <p class="fragment">Unfortunately, there is no standard for writing documentation and you will often bump into hard-to-read, outdated, and cryptic documentation</p>
+      </section>
+      
+      <section>
+        <h2>Tips for Reading Documentation</h2>
+        <ul>
+          <li class="fragment">Get a sense of how the documentation is organized</li>
+          <li class="fragment">Explore example code (copy & paste)</li>
+          <li class="fragment">Try out the first 3 methods or topics that catch your eye</li>
+          <li class="fragment">GOOGLE IT!</li>
+        </ul>
       </section>
 
       <section>
         <h2>Let's Develop It!</h2>
+        <p>Take 2 minutes to explore the <a href="https://randomuser.me/documentation" target="_blank">Random User API Documentation</a></p>
         <ul>
-          <li>If time, doing last BONUS together</li>
-          <li></li>
-          <li></li>
+          <li class="fragment">How would you request 100 random users?</li>
+          <li class="fragment">How would you request 100 female random users?</li>
+          <li class="fragment">How would you request a male from the US?</li>
+          <li class="fragment">How would you request 10 random users with only their name and cell number?</li>
         </ul>
+      </section>
+      <section>
+        <h2>Let's Develop It! - Answer</h2>
+          <pre><code class="javascript" data-trim>
+// 100 random users
+"https://randomuser.me/api/?results=100"</code></pre>
+          <pre><code class="javascript" data-trim>
+// 100 female random users
+"https://randomuser.me/api/?results=100&gender=female"</code></pre>
+          <pre><code class="javascript" data-trim>
+// a male from the US
+"https://randomuser.me/api/?nat=us"</code></pre>
+          <pre><code class="javascript" data-trim>
+// 10 random users with only their name and cell number
+"https://randomuser.me/api/?results=10&inc=name,cell"</code></pre>
+      </section>
+
+      <section>
+        <h2>Nested API calls</h2>
+        <p class="fragment">A typical pattern you'll see is when the data from one API call provides the information or setup for another API call.</p>
+        <pre class="fragment"><code class="javascript" data-trim contenteditable>
+// Random User API
+const URL_1 = "https://randomuser.me/api";
+
+// Sunrise and Sunset times API
+const URL_2_BASE = "https://api.sunrise-sunset.org/json?date=today";
+
+fetch(URL_1)
+  .then(response=>response.json())
+  .then(userData=>{
+    const name = userData.results[0].name;
+    const full_name = `${name.first} ${name.last}`;
+
+    const coordinates = userData.results[0].location.coordinates;
+    const lat = coordinates.latitude;
+    const long = coordinates.longitude;
+
+    const URL_2 = URL_2_BASE + "&lat=" + lat + "&lng=" + long;
+    fetch(URL_2)
+      .then(response=>response.json())
+      .then(ss_data=>{
+        const sunrise = ss_data.results.sunrise;
+        const sunset = ss_data.results.sunset;
+        console.log("My name is" + full_name);
+        console.log("The sunrise is at" + sunrise);
+        console.log("The sunset is at" + sunset);
+      })
+  })
+        </code></pre>
+        <p class="fragment">Notice the 2nd fetch is WITHIN the first</p>
+      </section>
+
+      <section>
+        <h2>Let's Develop It!</h2>
       </section>
 
       <section>
@@ -188,6 +371,7 @@ console.log(info); // undefined
         <h1>Additional Resources</h1>
         <ul>
           <li>JavaScript30</li>
+          <li><a href="https://github.com/toddmotto/public-apis" target="_blank">Public API List</a></li>
         </ul>
       </section>
 
@@ -266,7 +450,6 @@ console.log(info); // undefined
       ]
     });
   </script>
-
 </body>
 
 </html>

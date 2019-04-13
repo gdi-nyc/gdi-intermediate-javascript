@@ -23,7 +23,7 @@ const containerDiv = document.querySelector("#content-container");
 
 // Currently the client can access the functions and variables we've established since 
 // everything is defined in the global space (check in the browser!). At the very top
-// add and event listener to the document object and listen for the "DOMContentLoaded" event.
+// add an event listener to the document object and listen for the "DOMContentLoaded" event.
 // Then put ALL of the code in this script inside of the callback. When the DOM finishes
 // loading the code will execute like normal, but because it only exists within the callback
 // the user cannot access the variables! (NOTE: this is a standard practice)
