@@ -131,19 +131,21 @@ let x = function(){
         <p class="fragment">An object is a common data structure containing properties (variables) and methods
           (functions)</p>
         <pre class="fragment"><code class="javascript" data-trim contenteditable>
-const object = {
+const objectName = {
   "key"    : "value",
   question : "What is the meaning of life?",
   answer   : function(){ return 42 }
 }
 </code></pre>
         <ul>
-          <li class="fragment">Notice the keys and values are separated by colons</li>
-          <li class="fragment">Notice the key+value pairings are separated by commas</li>
-          <li class="fragment">The key can have quotations marks or not. Avoid spaces in the key name, but if you must
-            have a
-            space use quotations
-            marks</li>
+          <li class="fragment">Keys and values are separated by colons</li>
+          <li class="fragment">key+value pairings are separated by commas</li>
+          <li class="fragment">The key can have quotations marks or not
+            <ul>
+              <li>Avoid spaces in the key name, but if you must
+                  have one use quotations
+                  marks!</li>
+            </ul></li>
           <li class="fragment">The value can be any kind of data! A number, string, array, function, even another
             object!</li>
         </ul>
@@ -153,18 +155,17 @@ const object = {
         <h2>Using Objects</h2>
         <pre class="fragment"><code class="javascript" data-trim contenteditable>
 const myCat = {
-name  : "Harry",
-age   : 4,
-talk  : function(){
-    console.log("Meow!");
-  },
-state : "hungry"
+  name  : "Harry",
+  age   : 4,
+  talk  : function(){console.log("Meow!")},
+  state : "hungry"
 }
             </code></pre>
         <ul>
           <li class="fragment">Accessing a property</li>
           <pre class="fragment"><code class="javascript" data-trim contenteditable>
 myCat.name; // Harry
+myCat["name"]; // Harry
 myCat.state; // hungry
           </code></pre>
           <li class="fragment">Reassigning a propery</li>
@@ -174,52 +175,87 @@ myCat.state; // full
           </code></pre>
           <li class="fragment">Calling a method</li>
           <pre class="fragment"><code class="javascript" data-trim contenteditable>
-myCat.talk; // Meow!
+myCat.talk(); // Meow!
           </code></pre>
         </ul>
       </section>
 
       <section>
         <h2>"Living" Objects</h2>
-        <p class="fragment">Because object contain information about themselves within themselves, developers can
-          respresent nearly anything and give ownership
-          and responsibility to those objects</p>
-        <pre class="fragment"><code class="javascript" data-trim contenteditable>
-const bob_account = {
-  number : "3230-2346-623",
-  amount : 502.56
-}
-const bank = {
-  accounts : [bob_account,sam_account,derek_account],
-  location : "643 Broadway St. NY",
-  is_fdic_insured: true
-}
+        <ul>
+          <li class="fragment">Objects contain information about themselves within themselves</li>
+          <li class="fragment">This allows developers to give ownership and responsibility to objects...</li>
+          <li class="fragment">...making it possible to respresent nearly anything with an object!</li>
+        </ul>
+      </section>
+
+<section>
+  <h2>Object Example</h2>
+  <p>Let's make a town with buildings, like a bank, and have inhabitants with bank accounts</p>
+<pre class="fragment"><code class="javascript" data-trim contenteditable>
 const bob = {
-  name : "Bob Bobbington",
-  age : 45,
-  bank_account : bob_account
-}
-const town = {
-  buildings : [bank,hospial,gas_station,library],
-  population : 48170,
-  state : "NY"
+  name         : "Bob Bobbington",
+  age          : 45,
+  bank_account : {
+      number : "3230-2346-623",
+      amount : 502.56
+    }
 }
 </code></pre>
-      </section>
+  <pre class="fragment"><code class="javascript" data-trim contenteditable>
+const bank = {
+  accounts        : [bob.bank_account, sam.bank_account, derek.bank_account],
+  location        : "643 Broadway St. NY",
+  is_fdic_insured : true
+}
+  </code></pre>
+  <pre class="fragment"><code class="javascript" data-trim contenteditable>
+const town = {
+  buildings   : [bank, hospial, gas_station, library],
+  population  : 48170,
+  inhabitants : [bob, sam, derek],
+  state       : "NY"
+}
+  </code></pre>
+</section>
+
+<section>
+  <h2>Let's Develop It (as a class)</h2>
+  <p>Open up the console in the browser</p>
+  <ul>
+    <li class="fragment">Create a variable using your name and set it to an empty object
+  <pre><code class="javascript" data-trim contenteditable>
+const bob = {};
+</code></pre>
+</li>
+<li class="fragment">Add a .age property and set the value to your age
+  <pre><code class="javascript" data-trim contenteditable>
+bob.age = 33;
+</code></pre>
+</li>
+<li class="fragment">
+Add a .phrase <strong>method</strong> that returns your favorite phrase (make one up if you don't have one!)
+    <pre><code class="javascript" data-trim contenteditable>
+bob.phrase = function(){return "Bob's your uncle!"};
+    </code></pre>
+</li>
+<li class="fragment">Explore your object! Try calling the .phrase() method, too</li>
+  </ul>
+</section>
 
       <section>
         <h2>JSON</h2>
         <p class="fragment">JSON is one of the most common formats used then passing information over the internet</p>
         <ul>
-          <li class="fragment">JavaScript Object Notation</li>
-          <li class="fragment">JSON is a repository for information, represented as a raw object or array</li>
+          <li class="fragment">JSON stands for JavaScript Object Notation</li>
+          <li class="fragment">JSON is a raw object or array with the purpose of storing information</li>
           <li class="fragment">Contains strings, numbers, booleans, arrays, and objects</li>
-          <li class="fragment">You won't/shouldn't find methods or functions within JSON</li>
+          <li class="fragment">No methods!</li>
         </ul>
       </section>
 
       <section>
-        <h2>JSON Example #1</h2>
+        <h2>JSON as an object</h2>
         <pre class="fragment"><code class="javascript" data-trim contenteditable>
 {
   response: 200,
@@ -239,9 +275,10 @@ const town = {
   ]
 }
           </code></pre>
+          <p class="fragment">Notice the object stands alone - not assigned to a variable</p>
       </section>
       <section>
-        <h2>JSON Example #2</h2>
+        <h2>JSON as an array</h2>
         <pre><code class="javascript" data-trim contenteditable>
 [
   {
@@ -265,19 +302,48 @@ const town = {
 
       <section>
         <h2>Let's Develop It!</h2>
-        <p>In the "mainProject" folder, go into "class_2", and edit the "script.js" file</p>
+        <p>In the "mainProject" folder, go into "class_2", and view the "index.html" file in the browser</p>
         <ul>
-          <li>Let's explore the object in the browser</li>
+          <li>Explore the "questionObj" object defined in the "script.js" file</li>
           <li>How would you do the following:
             <ul>
-              <li>Access the question?</li>
-              <li>Change the difficulty?</li>
-              <li>Create a new property, "image_url", and set it to "games.png"</li>
-              <li>Access the 2nd item in the array?</li>
-              <li>Add "PAC-MAN" to the array?</li>
+              <li class="fragment">Access the question?</li>
+              <li class="fragment">Change the difficulty to "hard"?</li>
+              <li class="fragment">Create a new property, "image_url", and set it to "games.png"</li>
+              <li class="fragment">Access the 2nd item in the array?</li>
+              <li class="fragment">Add "PAC-MAN" to the array?</li>
             </ul>
           </li>
         </ul>
+      </section>
+      <section>
+        <h2>Let's Develop It! - Answers</h2>
+        
+        <pre><code class="javascript" data-trim contenteditable>
+// Access the question
+questionObj.question
+        </code></pre>
+        
+        <pre><code class="javascript" data-trim contenteditable>
+// Change the difficulty to hard
+questionObj.difficulty = "hard";
+        </code></pre>
+        
+        <pre><code class="javascript" data-trim contenteditable>
+// Create a new property, "image_url", and set it to "games.png"
+questionObj.image_url = "games.png";
+        </code></pre>
+        
+        <pre><code class="javascript" data-trim contenteditable>
+// Access the 2nd item in the array
+questionObj.incorrect_questions[1]; // Ubisoft
+        </code></pre>
+        
+        <pre><code class="javascript" data-trim contenteditable>
+// Add "PAC-MAN" to the array
+questionObj.incorrect_questions.push("PAC-MAN");
+        </code></pre>
+        
       </section>
 
       <section>
@@ -440,7 +506,7 @@ body.append(newH3);
 newH3.remove();
             </code></pre>
         <div class="halfblock fragment">
-          <img src="img/dom.PNG" alt="" width="300px" style="max-height: none;">
+          <img src="img/dom_1.PNG" alt="" width="300px" style="max-height: none;">
         </div>
         <div class="halfblock fragment">
           <img src="img/html_2.PNG" alt="" width="400px">
@@ -458,11 +524,11 @@ newH3.remove();
         <ul>
           <li>Store the #content-container element in a variable</li>
           <li>Create a function "addP" that takes a string for a parameter. The function:
-            <ul>
+            <ol>
               <li>Creates a &lt;p&gt; element</li>
               <li>Uses the string argument to set the .innerText of the &lt;p&gt;</li>
               <li>Appends the &lt;p&gt; to the #content-container</li>
-            </ul>
+            </ol>
           </li>
         </ul>
       </section>
@@ -484,7 +550,8 @@ newH3.remove();
         <h2>Take Home Assignment</h2>
         <ul>
           <li>Finish the "addQuestion" function - we'll be using it for the rest of the class!</li>
-          <li>Practice using callback functions in JS</li>
+          <li><a href="https://codeburst.io/javascript-what-the-heck-is-a-callback-aba4da2deced" target="_blank">Practice using callback functions in JS</a></li>
+          
           <li>Tackle as many bonuses as you can!</li>
         </ul>
       </section>

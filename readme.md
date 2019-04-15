@@ -36,8 +36,9 @@ This is the Girl Develop It NYC Intermediate JavaScript curriculum. It was devel
 - ~~Ensure there is 1 break for each class~~
 - ~~Ensure there is 1 quiz for each class (except first)~~
 - ~~Ensure each class has accurate Agenda at start~~
+- ~~Include bonuses for every activity~~
+- ~~Vet a few good APIs~~
 - Create Content for each class
-- Include bonuses for every activity
+- Add images to content
 - Compile all resources into index.html
-- Vet a few good APIs
 - Research resources and trailblazers to follow via different media

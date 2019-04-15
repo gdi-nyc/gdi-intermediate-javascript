@@ -168,6 +168,23 @@ console.log(age); // 42
       </section>
 
       <section>
+          <h2>Asynchronous Real Life</h2>
+          <ul>
+            <li class="fragment">Your left in charge of the house and your mom has left you a TO-DO list:
+              <ol>
+                <li>Schedule vet appt.</li>
+                <li>Take out garbage</li>
+                <li>Wash the dishes</li>
+              </ol>
+            </li>
+            <li class="fragment">You're very particular and want to do everything in order (like JS!)</li>
+            <li class="fragment">When you call the vet, you're put on hold...</li>
+            <li class="fragment">You're not going to just wait around! While on hold, you take out the garbage and wash the dishes</li>
+            <li class="fragment">Eventually, the vet comes back and you schedule the appt.</li>
+          </ul>
+      </section>
+
+      <section>
         <h2>Asynchronous JavaScript</h2>
         <p class="fragment">There are instances when code will get executed, but NOT resolve immediately, such
           as requesting information from an <span class="emph">API</span> server</p>
@@ -202,6 +219,7 @@ console.log(data); // undefined
         <ul>
           <li>Run the previous slides' code in the browser</li>
           <li>console.log(data) again after a few seconds</li>
+          <li>What's happening?</li>
         </ul>
       </section>
 
@@ -228,7 +246,7 @@ console.log(data); // undefined
       </section>
 
       <section>
-        <h2>An API cautionary tale...</h2>
+        <h2>A cautionary tale...</h2>
         <ul>
           <li class="fragment">Typically, API servers are set up to protect themselves from excessive requests from a
             single source, or IP address</li>
@@ -387,7 +405,7 @@ fetch(URL).then(handleResponse);
       </section>
 
       <section>
-        <h2>Let's Develop It! - Answer</h2>
+        <h2>Let's Develop It! - Result</h2>
         <pre><code class="javascript" data-trim contenteditable>
 const URL = "https://randomuser.me/api";
 const handleResponse = response => response.json();
@@ -429,7 +447,13 @@ console.log(data); // undefined...wait, what!?
         <h2>Take Home Assignment</h2>
         <ul>
             <li>Finish all of the tasks in the "script.js" file - we'll be using it for the last class!</li>
-            <li>Practice using some of the other APIs list <a href="https://github.com/toddmotto/public-apis">here</a></li>
+            <li>Practice using one of the following APIs 
+              <ol>
+                <li><a href="https://dog.ceo/dog-api/">Dog API - https://dog.ceo/dog-api/</a></li>
+                <li><a href="http://deckofcardsapi.com/">Deck of Cards API - http://deckofcardsapi.com/</a></li>
+                <li><a href="https://pokeapi.co/">PokéAPI - https://pokeapi.co/</a></li>
+              </ol>
+            </li>
             <li>Tackle as many bonuses as you can!</li>
           </ul>
       </section>
@@ -442,15 +466,6 @@ console.log(data); // undefined...wait, what!?
               href="https://chrome.google.com/webstore/detail/json-formatter/bcjindcccaagfpapjjmafapmmgkkhgoa?hl=en">JSON
               Formatter - Chrome Extension</a></li>
               <li><a href="https://github.com/toddmotto/public-apis" target="_blank">Public API List</a></li>          
-        </ul>
-      </section>
-
-      <section>
-        <h2>More API's!</h2>
-        <ul>
-          <li>https://medium.com/@vicbergquist/18-fun-apis-for-your-next-project-8008841c7be9</li>
-          <li></li>
-          <li></li>
         </ul>
       </section>
     </div>

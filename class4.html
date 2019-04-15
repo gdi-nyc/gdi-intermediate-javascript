@@ -88,8 +88,8 @@ longestName();
           <pre class="fragment"><code class="javascript" data-trim contenteditable>
 // preference for const
 const students = ["Bob","Amy","Betty","Bill","Marge","Charlotte","Shawn","Pedro"];
-// Can abstract function to be more versatile
-const longestStr = function(arr){ // keep references within function
+// Keep array reference within function as parameter (more versatile)
+const longestStr = function(arr){
   let output = "";
   for(let i = 0; i < arr.length; i++){
     const str = arr[i];
@@ -97,7 +97,7 @@ const longestStr = function(arr){ // keep references within function
   }
   return output;
 }
-longestStr(students); // pass data into function as argument
+longestStr(students); // must pass data into fun  ction as argument
             </code></pre>
         </section>
         <section>
@@ -137,14 +137,13 @@ fetch(URL)
   })
 console.log(info); // undefined
             </code></pre>
+            <p class="fragment">The asynchronous fetch() call does not reassign the "info" variable before the console.log() executes</p>
         </section>
       </section>
       
       <section>
           <h2>Events</h2>
-          <p class="fragment">DOM Events are particular moments that occur to the document or individual elements</p>
-          <br>
-          <p class="fragment">For example, when the users:</p>
+          <p class="fragment">An events is some notable moment for an element, such as when a user:</p>
           <ul>
             <li class="fragment">scrolls on the page</li>
             <li class="fragment">clicks an elements</li>
@@ -158,7 +157,7 @@ console.log(info); // undefined
   
         <section>
           <h2>Event Handlers</h2>
-          <p class="fragment">An event handler is a callback that can be assigned to an element to trigger when an event occurs</p>
+          <p class="fragment">An event handler is a callback function that can be assigned to an element to <strong>trigger</strong> when an event occurs</p>
           <pre class="fragment"><code class="javascript" data-trim contenteditable>
 const button = document.querySelector("button");
 button.addEventListener("click",handleClick);
@@ -186,37 +185,43 @@ function handleClick(event){
       </section>
 
       <section>
+        <h2>The final product</h2>
+        <p><a href="mainProject/class_4/index_SOLUTION.html" target="_blank">This</a> is what we made!</p>
+        <img src="img/quiz_app.PNG" alt="">
+      </section>
+
+      <section>
           <h1>&lt;br/&gt;</h1>
         </section>
   
       <section>
         <h2>Working with other APIs</h2>
-        <p class="fragment">Not all APIs are created equal - 3 main types</p>
-        <ul>
-          <li class="fragment">Open to all (what we've been using)</li>
+        <p class="fragment">Not all APIs are created equal - there are 3 main ways to access and API</p>
+        <ol>
+          <li class="fragment">Open to all - no authentication required!</li>
           <li class="fragment">Requires developer account and authentication key...
-            <ul>
-              <li class="fragment">can be part of URL</li>
-              <li class="fragment">can only go in request "header"</li>
-            </ul>
+            <ol>
+              <li class="fragment">which can be part of the request URL</li>
+              <li class="fragment">which must go in the request header</li>
+            </ol>
           </li>
-        </ul>
+        </ol>
       </section>
 
       <section>
         <h2>APIs open to all</h2>
-        <p class="fragment">Open APIs like this are hard to come by, so keep the following in mind:</p>
+        <p class="fragment">Anyone can use these without needing permission or authentication!</p>
         <ul>
-          <li class="fragment">Free!</li>
-          <li class="fragment">Since you are not required to prove your identity, this kind of API server will often put a low limit on how many requests can be made from the same IP address</li>
-          <li class="fragment">A server is costly to maintain, and without proper backing many of these kinds of API servers shut down</li>
+          <li class="fragment">💲Free!💲</li>
+          <li class="fragment">Usually has a low limit on the number of requests that can be made from the same IP address</li>
+          <li class="fragment">A server is costly to maintain, and without proper backing many Open APIs shut down - making them less reliabile</li>
         </ul>
       </section>
 
       <section>
         <h2>APIs open to all - Example</h2>
         <pre class="fragment"><code class="javascript" data-trim contenteditable>
-const URL = "http://taco-randomizer.herokuapp.com/random/";
+const URL = "http://taco-randomizer.herokuapp.com/random/"; // TacoFancy API
 fetch(URL)
   .then(response=>response.json())
   .then(console.log)
@@ -225,12 +230,13 @@ fetch(URL)
 
       <section>
         <h2>APIs with key in URL</h2>
-        <p class="fragment">This type of API will require you have a developer account - sometimes you can simply sign up, while other times you'll need to fill out a small application to explain your project</p>
         <ul>
-          <li class="fragment">Usually free</li>
-          <li class="fragment">The owners just want to make sure anyone who accesses their server is doing so legitimately and not going to abuse the priveledge</li>
+          <li class="fragment">Usually free!</li>
+          <li class="fragment">Must sign up for a developer account - may include a small questionarre explaining your project</li>
+          <li class="fragment">You will get an API key, which ensures API requests are coming from a legitimate source and not being abused</li>
+          <li class="fragment">API key is passes along as a URL parameter</li>
           <li class="fragment"><i>You may be asked to provide the domain from which requests will come from - this is another security measure</i></li>
-          <li class="fragment">The request limit is usually NOT done by IP address, but number of requests per unit of time</li>
+          <li class="fragment">The request limit is usually NOT done by IP address - instead the number of requests per unit of time is limited (pay $$ to increase this limit)</li>
         </ul>
       </section>
 
@@ -238,11 +244,12 @@ fetch(URL)
           <h2>APIs with key in URL - Example</h2>
           <pre class="fragment"><code class="javascript" data-trim contenteditable>
 const BASE_API = "https://api.nasa.gov/planetary/apod"; // NASA API
-const API_KEY = "ia3zj9BseiAa6E0cRJG18hVlq4Jq6gV5sO4I0j6O";
+
+const API_KEY = "YOUR KEY HERE"; // get API key by signing up as a developer
 
 const URL = BASE_API + "?api_key=" + API_KEY;
-// "?api_key=" sets a URL parameter
-// Read the documentation for exact property name
+// "?api_key=" sets a URL parameter (can test this URL in browser directly!)
+// parameter name is specified in the documentation
 
 fetch(URL)
   .then(response=>response.json())
@@ -250,27 +257,27 @@ fetch(URL)
   </code></pre>
         </section>
       <section>
-        <h2>APIs with key in request "header"</h2>
-        <p class="fragment">Need developer account - sometimes sign up and/or fill out application</p>
+        <h2>APIs with key in request header</h2>
         <ul>
           <li class="fragment">Usually free</li>
-          <li class="fragment">API key passed through request "header"</li>
+          <li class="fragment">Must sign up for a developer account</li>
+          <li class="fragment">You will get an API key</li>
+          <li class="fragment">API key passed through request header - an object that accompanies the request</li>
           <li class="fragment"><i>May have to provide the domain from which requests will come from</i></li>
-          <li class="fragment">The request limit is usually NOT done by IP address, but number of requests per unit of time</li>
+          <li class="fragment">Requests are limited by number per unit of time (pay $$ to increase this limit)</li>
         </ul>
       </section>
       <section>
-          <h2>APIs with key in request "header" - Example</h2>
+          <h2>APIs with key in request header - Example</h2>
           <pre class="fragment"><code class="javascript" data-trim contenteditable>
-// Fav Quotes API
-const URL = "https://favqs.com/api/qotd";
+const URL = "https://favqs.com/api/qotd"; // Fav Quotes API
 
-const API_KEY = "f68e9bc20dad34bdd6694488ec5643d3";
+const API_KEY = "YOUR KEY HERE"; // get API key by signing up as a developer
 
-const options = {
-  method:"GET",
-  headers: {
-    "Content-Type" : "application/json",
+const options = { // can have MANY more options
+  method:"GET", // Getting response versus posting one
+  headers: { // can have MANY more options
+    "Content-Type" : "application/json", // specifying JSON as returning data type
     "Authorization": "Token token=" + URL // specified in documentation
   }
 }
@@ -284,7 +291,7 @@ fetch(URL, options)
         <h2>Reading Documentation</h2>
         <p class="fragment">API Documentation is written by developers to help other developers understand how to use their API</p>
         <br>
-        <p class="fragment">Unfortunately, there is no standard for writing documentation and you will often bump into hard-to-read, outdated, and cryptic documentation</p>
+        <p class="fragment"><strong>Unfortunately, there is no standard for writing documentation</strong> and you will often bump into hard-to-read, outdated, and cryptic documentation</p>
       </section>
       
       <section>
@@ -317,7 +324,7 @@ fetch(URL, options)
 "https://randomuser.me/api/?results=100&gender=female"</code></pre>
           <pre><code class="javascript" data-trim>
 // a male from the US
-"https://randomuser.me/api/?nat=us"</code></pre>
+"https://randomuser.me/api/?gender=male&nat=us"</code></pre>
           <pre><code class="javascript" data-trim>
 // 10 random users with only their name and cell number
 "https://randomuser.me/api/?results=10&inc=name,cell"</code></pre>
@@ -343,6 +350,8 @@ fetch(URL_1)
     const lat = coordinates.latitude;
     const long = coordinates.longitude;
 
+    // Sunrise & Sunset API can accept URL parameters for longitude
+    // and latitude to get the sunrise and sunset for that location
     const URL_2 = URL_2_BASE + "&lat=" + lat + "&lng=" + long;
     fetch(URL_2)
       .then(response=>response.json())
@@ -350,21 +359,25 @@ fetch(URL_1)
         const sunrise = ss_data.results.sunrise;
         const sunset = ss_data.results.sunset;
         console.log("My name is" + full_name);
-        console.log("The sunrise is at" + sunrise);
-        console.log("The sunset is at" + sunset);
+        console.log("My sunrise was at " + sunrise);
+        console.log("My sunset will occur at " + sunset);
       })
   })
         </code></pre>
-        <p class="fragment">Notice the 2nd fetch is WITHIN the first</p>
-      </section>
-
-      <section>
-        <h2>Let's Develop It!</h2>
+        <p class="fragment">Notice the 2nd fetch is WITHIN the first's callback</p>
       </section>
 
       <section>
         <h2>Take Home Assignment</h2>
-        <p></p>
+        <p>Find 1 API we didn't use and create a web application allowing users to interact with it. For example:</p>
+        <ul>
+          <li>Use the Pokemon API and allow users to search for pokemon by name</li>
+          <li>Use the Giphy API and allow users to find images by different criteria</li>
+          <li>Use the Google Maps API to send users on treasure hunts based on location</li>
+        </ul>
+        <br>
+        <br>
+        <p>The possiblities are endless!</p>
       </section>
 
       <section>
@@ -375,6 +388,19 @@ fetch(URL_1)
         </ul>
       </section>
 
+      
+      <section>
+          <h2>So Long! Farewell!</h2>
+
+          <img src="img/farewell.gif" alt="">
+        </section>
+  
+        <section>
+          <h2>Wrapping Up</h2>
+          <ul>
+            <li>Complete Surveys!</li>
+          </ul>
+        </section>
     </div>
 
   </div>
