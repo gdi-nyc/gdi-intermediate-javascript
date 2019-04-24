@@ -266,9 +266,9 @@ console.log(data); // undefined
           <li>Open the browser's console and store the JSON (copy and paste it) in a variable "json"</li>
           <li>How would you access the following properties:
             <ul>
-              <li>cell number</li>
-              <li>username</li>
-              <li>API version</li>
+              <li class="fragment">cell number?</li>
+              <li class="fragment">username?</li>
+              <li class="fragment">API version?</li>
             </ul>
           </li>
         </ul>
@@ -296,7 +296,7 @@ json.info.version;
         <h2>Callbacks</h2>
         <p class="fragment">A callback is a function that is passed into another function as an argument to be called later</p>
         <ul>
-          <li class="fragment">We define functions and typically call them directly</li>
+          <li class="fragment">Usually, we define functions and call them directly</li>
           <pre class="fragment"><code class="javascript" data-trim contenteditable>
 const add = (a,b) => a + b;
 add(1,3); // 4
@@ -318,9 +318,9 @@ const add = (a,b) => a + b;
 
 /**
  * Combines each element of the given array
- * using the given combining function.
+ * using the given combiningFunction.
  */
-const combineArray = (arr,combiningFunction) => {
+const combineArray = (arr, combiningFunction) => {
   let total = arr[0];
   for(let i = 1; i < arr.length; i++){
     total = combiningFunction(total, arr[i]); // callback called here
@@ -337,15 +337,15 @@ combineArray(numbers, add); // 6
         <h2>Callbacks</h2>
         <ul>
               <li class="fragment">The function recieving the callback is known as a higher-order function</li>
-              <li class="fragment">Higher-order functions separate logic and allow developers to determine how they want to handle processing data</li>
+              <li class="fragment">Higher-order functions separate logic and allow developers to determine how they want to handle code execution</li>
                 <pre class="fragment"><code class="javascript" data-trim contenteditable>
 const stringify = (a,b) => String(a) + String(b);
 
 /**
  * Combines each element of the given array
- * using the given combining function.
+ * using the given combiningFunction.
  */
-const combineArray = (arr,combiningFunction) => {
+const combineArray = (arr, combiningFunction) => {
   let total = arr[0];
   for(let i = 1; i < arr.length; i++){
     total = combiningFunction(total, arr[i]); // callback called here
@@ -461,11 +461,11 @@ console.log(data); // undefined...wait, what!?
       <section>
         <h1>Additional Resources</h1>
         <ul>
-          <li>JS Promises</li>
-          <li><a
-              href="https://chrome.google.com/webstore/detail/json-formatter/bcjindcccaagfpapjjmafapmmgkkhgoa?hl=en">JSON
-              Formatter - Chrome Extension</a></li>
-              <li><a href="https://github.com/toddmotto/public-apis" target="_blank">Public API List</a></li>          
+         <li><a href="https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf?hl=en" target="blank">CORS - Chrome Extension</a></li>
+         <li><a href="https://www.youtube.com/watch?v=QO4NXhWo_NM" target="blank">JS Promises by Daniel Shiffman</a></li>
+         <li><a href="https://www.youtube.com/channel/UCvjgXvBlbQiydffZU7m1_aw" target="blank">The Coding Train - Daniel Shiffman</a></li>
+         <li><a href="https://davidwalsh.name/fetch" target="blank">Fetch by David Walsh</a></li>
+         <li><a href="https://davidwalsh.name/" target="blank">David Walsh - Blog</a></li>
         </ul>
       </section>
     </div>

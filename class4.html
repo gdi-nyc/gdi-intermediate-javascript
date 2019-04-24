@@ -196,7 +196,7 @@ function handleClick(event){
   
       <section>
         <h2>Working with other APIs</h2>
-        <p class="fragment">Not all APIs are created equal - there are 3 main ways to access and API</p>
+        <p class="fragment">Not all APIs are created equal - there are 3 main ways to access an API</p>
         <ol>
           <li class="fragment">Open to all - no authentication required!</li>
           <li class="fragment">Requires developer account and authentication key...
@@ -255,6 +255,7 @@ fetch(URL)
   .then(response=>response.json())
   .then(console.log)
   </code></pre>
+  <p class="fragment"><a href="http://www.ronstauffer.com/blog/understanding-a-url/" target="_blank">Understanding a URL (with parameters)</a></p>
         </section>
       <section>
         <h2>APIs with key in request header</h2>
@@ -275,14 +276,14 @@ const URL = "https://favqs.com/api/qotd"; // Fav Quotes API
 const API_KEY = "YOUR KEY HERE"; // get API key by signing up as a developer
 
 const options = { // can have MANY more options
-  method:"GET", // Getting response versus posting one
-  headers: { // can have MANY more options
+  method:"GET", // GETting response instead of POSTing one
+  headers: {
     "Content-Type" : "application/json", // specifying JSON as returning data type
-    "Authorization": "Token token=" + URL // specified in documentation
+    "Authorization": "Token token=" + API_KEY // specified in documentation
   }
 }
 
-fetch(URL, options)
+fetch(URL, options) // notice 2nd parameter!
   .then(response=>response.json())
   .then(data=>console.log(data.quote))
   </code></pre>
@@ -383,8 +384,16 @@ fetch(URL_1)
       <section>
         <h1>Additional Resources</h1>
         <ul>
-          <li>JavaScript30</li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/Events" target="blank">List of DOM Events</a></li>
+          <li>
+            <a href="https://javascript30.com/" target="_blank">JavaScript30</a>
+            </li>
+          <li><a href="https://scotch.io/" target="_blank">Scotch.io - tutorials</a></li>
           <li><a href="https://github.com/toddmotto/public-apis" target="_blank">Public API List</a></li>
+          <li><a href="https://www.youtube.com/channel/UCEDkO7wshcDZ7UZo17rPkzQ" target="_blank">Mayuko - Vlog</a></li>
+          <li><a href="https://medium.com/@adrienne.tacke" target="_blank">Adrienne Tacke - Blog</a></li>
+          <li><a href="https://www.instagram.com/binarybeauty/" target="_blank">binarybeauty - Instagram</a></li>
+          <li><a href="https://twitter.com/MinaMarkham" target="_blank">Mina Markham - Twitter</a></li>
         </ul>
       </section>
 
