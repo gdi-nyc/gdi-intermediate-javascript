@@ -31,14 +31,3 @@ The last class is used as an opportunity to familiarize students with using othe
 
 ## Credits
 This is the Girl Develop It NYC Intermediate JavaScript curriculum. It was developed through the contributions of Mahdi Shadkam-Farrokhi.
-
-### TO DO LIST
-- ~~Ensure there is 1 break for each class~~
-- ~~Ensure there is 1 quiz for each class (except first)~~
-- ~~Ensure each class has accurate Agenda at start~~
-- ~~Include bonuses for every activity~~
-- ~~Vet a few good APIs~~
-- Create Content for each class
-- Add images to content
-- Compile all resources into index.html
-- Research resources and trailblazers to follow via different media
